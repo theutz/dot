@@ -9,8 +9,9 @@
 - link:
     ~/.gitconfig:
     ~/.tmux.conf:
-    ~/.config/fish: config/fish
-    ~/.config/nvim: config/nvim
+    ~/.config/:
+      path: config/*
+      glob: true
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
