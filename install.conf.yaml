@@ -1,13 +1,15 @@
 - defaults:
     link:
       relink: true
+      force: true
 
 - clean: ["~"]
 
 - link:
     ~/.gitconfig:
       path: gitconfig
-      force: true
+    ~/.tmux.conf:
+      path: tmux.conf
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
