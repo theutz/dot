@@ -1,0 +1,11 @@
+[git_metrics]
+disabled = false
+
+[status]
+disabled = false
+
+[sudo]
+disabled = false
+
+[shlvl]
+disabled = false
