@@ -33,6 +33,7 @@
 #       runner: node
 #     "any.go":
 #       runner: go run
-pre-commit:
-  commands:
-    commitlint:
+commit-msg:
+  scripts:
+    "commitlint.sh":
+      runner: bash

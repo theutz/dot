@@ -14,5 +14,7 @@
       glob: true
 
 - shell:
+    - [pnpm install, Setup pnpm workspace]
+    - [lefthook install, Install lefthook]
     - [git submodule update --init --recursive, Installing submodules]
     - [~/.tmux/plugins/tpm/bin/install_plugins, Install Tmux Plugins]
