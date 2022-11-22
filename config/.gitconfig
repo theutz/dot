@@ -1,0 +1,31 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Michael Utz
+	email = michael@theutz.com
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = ~/.global_gitignore
+	pager = delta
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[pull]
+	ff = only
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+[merge]
+	conflictStyle = diff3
+[diff]
+	colorMoved = default
