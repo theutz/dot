@@ -2,14 +2,14 @@
     link:
       relink: true
       force: true
+      create: true
 
 - clean: ["~"]
 
 - link:
     ~/.gitconfig:
-      path: gitconfig
     ~/.tmux.conf:
-      path: tmux.conf
+    ~/.config/fish: config/fish
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
