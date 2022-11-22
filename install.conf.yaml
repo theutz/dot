@@ -1,10 +1,28 @@
+- clean: ["~"]
+
+- defaults:
+    brewfile:
+      stdout: true
+    brew:
+      stdout: false
+      stderr: false
+
+- install-brew: true
+
+- brew:
+    - pnpm
+    - lefthook
+    - fish
+
+- shell:
+    - [pnpm install, Setup pnpm workspace]
+    - [lefthook install, Install lefthook]
+
 - defaults:
     link:
       relink: true
       force: true
       create: true
-
-- clean: ["~"]
 
 - link:
     ~/.gitconfig:
@@ -14,7 +32,4 @@
       glob: true
 
 - shell:
-    - [pnpm install, Setup pnpm workspace]
-    - [lefthook install, Install lefthook]
-    - [git submodule update --init --recursive, Installing submodules]
     - [~/.tmux/plugins/tpm/bin/install_plugins, Install Tmux Plugins]
