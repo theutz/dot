@@ -257,6 +257,8 @@ local function plugins(use, plugin)
 			require("github-notifications").setup()
 		end,
 	})
+
+	plugin("pwntester/octo.nvim")
 end
 
 return packer.setup(config, plugins)

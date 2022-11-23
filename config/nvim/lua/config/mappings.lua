@@ -103,6 +103,7 @@ local leader = {
 		["D"] = { "<cmd>:bd<CR>", "Delete Buffer & Window" },
 	},
 	c = "code",
+	d = "debug",
 	f = {
 		name = "file",
 		t = { "<cmd>Neotree toggle<cr>", "Neotree" },
@@ -153,6 +154,14 @@ local leader = {
 	p = {
 		name = "project",
 	},
+	q = {
+		name = "+quit/session",
+		q = { "<cmd>qa<cr>", "Quit" },
+		["!"] = { "<cmd>qa!<cr>", "Quit without saving" },
+		s = { [[<cmd>lua require("persistence").load()<cr>]], "Restore Session" },
+		l = { [[<cmd>lua require("persistence").load({ last = true })<cr>]], "Restore Last Session" },
+		d = { [[<cmd>lua require("persistence").stop()<cr>]], "Stop Current Session" },
+	},
 	s = {
 		name = "+search",
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
@@ -178,14 +187,7 @@ local leader = {
 		h = { "<cmd>Telescope command_history<cr>", "Command History" },
 		m = { "<cmd>Telescope marks<cr>", "Jump to Mark" },
 		["."] = { "<cmd>Telescope resume<cr>", "Resume previous search" },
-	},
-	q = {
-		name = "+quit/session",
-		q = { "<cmd>qa<cr>", "Quit" },
-		["!"] = { "<cmd>qa!<cr>", "Quit without saving" },
-		s = { [[<cmd>lua require("persistence").load()<cr>]], "Restore Session" },
-		l = { [[<cmd>lua require("persistence").load({ last = true })<cr>]], "Restore Last Session" },
-		d = { [[<cmd>lua require("persistence").stop()<cr>]], "Stop Current Session" },
+		n = { "<cmd>Telescope notify<cr>", "Notifications" },
 	},
 	t = {
 		name = "toggle",
