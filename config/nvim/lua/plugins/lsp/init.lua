@@ -111,6 +111,7 @@ function M.config()
 		},
 		teal_ls = {},
 		vimls = {},
+		taplo = {},
 		-- tailwindcss = {},
 		intelephense = {
 			settings = {
