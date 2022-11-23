@@ -3,6 +3,9 @@
 SETUVAR --export EDITOR:nvim
 SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_brewh:brew\x20home
+SETUVAR _fish_abbr_brewi:brew\x20install
+SETUVAR _fish_abbr_brewx:brew\x20uninstall
 SETUVAR _fish_abbr_c:composer
 SETUVAR _fish_abbr_e:nvim
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
