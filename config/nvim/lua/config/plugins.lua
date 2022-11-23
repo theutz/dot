@@ -249,6 +249,14 @@ local function plugins(use, plugin)
 	plugin("TimUntersberger/neogit")
 
 	plugin("mfussenegger/nvim-dap")
+
+	use({
+		"rlch/github-notifications.nvim",
+		module = "github-notifications",
+		config = function()
+			require("github-notifications").setup()
+		end,
+	})
 end
 
 return packer.setup(config, plugins)
