@@ -269,6 +269,16 @@ local function plugins(use, plugin)
 	plugin("phaazon/hop.nvim")
 
 	plugin("ggandor/leap.nvim")
+
+	use({
+		"dstein64/vim-startuptime",
+		cmd = "StartupTime",
+		config = function()
+			vim.g.startuptime_tries = 10
+		end,
+	})
+
+	plugin("RRethy/vim-illuminate")
 end
 
 return packer.setup(config, plugins)
