@@ -3,6 +3,8 @@
 SETUVAR --export EDITOR:nvim
 SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_c:composer
+SETUVAR _fish_abbr_e:nvim
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue
