@@ -263,6 +263,8 @@ local function plugins(use, plugin)
 	plugin("nvim-lualine/lualine.nvim")
 
 	plugin("NvChad/nvim-colorizer.lua")
+
+	plugin("kevinhwang91/nvim-ufo")
 end
 
 return packer.setup(config, plugins)
