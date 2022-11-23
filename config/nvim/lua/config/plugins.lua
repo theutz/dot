@@ -265,6 +265,8 @@ local function plugins(use, plugin)
 	plugin("NvChad/nvim-colorizer.lua")
 
 	plugin("kevinhwang91/nvim-ufo")
+
+	plugin("phaazon/hop.nvim")
 end
 
 return packer.setup(config, plugins)
