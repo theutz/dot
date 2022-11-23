@@ -5,6 +5,7 @@ local function clock()
 end
 
 function M.config()
+	local colors = require("catppuccin.palettes").get_palette("macchiato")
 	require("lualine").setup({
 		options = {
 			theme = "catppuccin",
@@ -31,6 +32,7 @@ function M.config()
 						local navic = require("nvim-navic")
 						return navic.is_available()
 					end,
+					color = { fg = colors.yellow },
 				},
 			},
 			lualine_x = {
@@ -41,14 +43,17 @@ function M.config()
 				{
 					require("noice").api.status.command.get,
 					cond = require("noice").api.status.command.has,
+					color = { fg = colors.yellow },
 				},
 				{
 					require("noice").api.status.mode.get,
 					cond = require("noice").api.status.mode.has,
+					color = { fg = colors.yellow },
 				},
 				{
 					require("noice").api.status.search.get,
 					cond = require("noice").api.status.search.has,
+					color = { fg = colors.yellow },
 				},
 				-- function()
 				--   return require("messages.view").status
