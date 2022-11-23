@@ -267,6 +267,8 @@ local function plugins(use, plugin)
 	plugin("kevinhwang91/nvim-ufo")
 
 	plugin("phaazon/hop.nvim")
+
+	plugin("ggandor/leap.nvim")
 end
 
 return packer.setup(config, plugins)
