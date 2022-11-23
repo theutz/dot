@@ -247,6 +247,8 @@ local function plugins(use, plugin)
 	plugin("edluffy/specs.nvim")
 
 	plugin("TimUntersberger/neogit")
+
+	plugin("mfussenegger/nvim-dap")
 end
 
 return packer.setup(config, plugins)
