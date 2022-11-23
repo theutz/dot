@@ -289,6 +289,8 @@ local function plugins(use, plugin)
 			vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
 		end,
 	})
+
+	plugin("nvim-neotest/neotest")
 end
 
 return packer.setup(config, plugins)
