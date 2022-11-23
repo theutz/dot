@@ -245,6 +245,8 @@ local function plugins(use, plugin)
 	plugin("akinsho/nvim-toggleterm.lua")
 
 	plugin("edluffy/specs.nvim")
+
+	plugin("TimUntersberger/neogit")
 end
 
 return packer.setup(config, plugins)
