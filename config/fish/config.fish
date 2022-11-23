@@ -1,6 +1,7 @@
 if status is-interactive
     starship init fish | source
     navi widget fish | source
+    zoxide init --cmd cd fish | source
 
     # tabtab source for packages
     # uninstall by removing these lines
