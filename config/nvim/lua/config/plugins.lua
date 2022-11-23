@@ -281,6 +281,14 @@ local function plugins(use, plugin)
 	plugin("RRethy/vim-illuminate")
 
 	plugin("nvim-neorg/neorg")
+
+	use({
+		"andymass/vim-matchup",
+		event = "BufReadPost",
+		config = function()
+			vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
+		end,
+	})
 end
 
 return packer.setup(config, plugins)
