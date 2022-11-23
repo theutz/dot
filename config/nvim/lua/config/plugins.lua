@@ -279,6 +279,8 @@ local function plugins(use, plugin)
 	})
 
 	plugin("RRethy/vim-illuminate")
+
+	plugin("nvim-neorg/neorg")
 end
 
 return packer.setup(config, plugins)
