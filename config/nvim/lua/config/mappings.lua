@@ -177,6 +177,7 @@ local leader = {
 		},
 		h = { "<cmd>Telescope command_history<cr>", "Command History" },
 		m = { "<cmd>Telescope marks<cr>", "Jump to Mark" },
+		["."] = { "<cmd>Telescope resume<cr>", "Resume previous search" },
 	},
 	q = {
 		name = "+quit/session",
