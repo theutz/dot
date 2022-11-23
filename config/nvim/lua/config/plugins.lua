@@ -261,6 +261,8 @@ local function plugins(use, plugin)
 	plugin("pwntester/octo.nvim")
 
 	plugin("nvim-lualine/lualine.nvim")
+
+	plugin("NvChad/nvim-colorizer.lua")
 end
 
 return packer.setup(config, plugins)
