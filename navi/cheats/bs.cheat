@@ -1,0 +1,4 @@
+% git, submodule, move
+
+# move a submodule
+git mv <old> <new>

@@ -30,6 +30,7 @@
     ~/.config/:
       path: config/*
       glob: true
+    ~/Library/Application Support/navi/config.yaml: navi/config.yaml
 
 - shell:
     - [~/.tmux/plugins/tpm/bin/install_plugins, Install Tmux Plugins]
