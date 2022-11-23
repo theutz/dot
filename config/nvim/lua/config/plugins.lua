@@ -243,5 +243,8 @@ local function plugins(use, plugin)
 	plugin("lukas-reineke/indent-blankline.nvim")
 
 	plugin("akinsho/nvim-toggleterm.lua")
+
+	plugin("edluffy/specs.nvim")
 end
+
 return packer.setup(config, plugins)
