@@ -259,6 +259,7 @@ local leader = {
 		["["] = { "<cmd>tabprevious<CR>", "Previous" },
 		f = { "<cmd>tabfirst<CR>", "First" },
 		l = { "<cmd>tablast<CR>", "Last" },
+		s = { "<cmd>Telescope telescope-tabs list_tabs<cr>", "Search" },
 	},
 	["`"] = { "<cmd>:e #<cr>", "Switch to Other Buffer" },
 	[" "] = "Find File",
