@@ -166,6 +166,7 @@ local leader = {
 		name = "+search",
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
 		b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Buffer" },
+		l = { "<cmd>Telescope luasnip<cr>", "LuaSnip" },
 		s = {
 			function()
 				require("telescope.builtin").lsp_document_symbols({
