@@ -12,6 +12,7 @@ local M = {
 		{ "crispgm/telescope-heading.nvim", module = "telescope._extensions.heading" },
 		{ "xiyaowong/telescope-emoji.nvim", module = "telescope._extensions.emoji" },
 		{ "LukasPietzschmann/telescope-tabs", module = "telescope._extensions.telescope-tabs" },
+		{ "nvim-telescope/telescope-github.nvim", module = "telescope._extensions.gh" },
 	},
 }
 
@@ -117,6 +118,7 @@ function M.config()
 	telescope.load_extension("heading")
 	telescope.load_extension("emoji")
 	telescope.load_extension("telescope-tabs")
+	telescope.load_extension("gh")
 	-- telescope.load_extension("project")
 end
 

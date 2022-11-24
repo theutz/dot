@@ -112,7 +112,7 @@ local leader = {
 		n = { "<cmd>enew<cr>", "New File" },
 	},
 	g = {
-		name = "+git",
+		name = "git",
 		l = {
 			function()
 				require("util").float_terminal("lazygit", { border = "none" })
@@ -123,7 +123,23 @@ local leader = {
 		b = { "<Cmd>Telescope git_branches<CR>", "branches" },
 		s = { "<Cmd>Telescope git_status<CR>", "status" },
 		d = { "<cmd>DiffviewOpen<cr>", "DiffView" },
-		h = { name = "+hunk" },
+		f = { name = "hunk" },
+		i = {
+			name = "github issues",
+			l = { "<cmd>Telescope gh issues<cr>", "List issues" },
+		},
+		p = {
+			name = "github pull requests",
+			l = { "<cmd>Telescope gh pull_request<cr>", "List pull requests" },
+		},
+		["."] = {
+			name = "gists",
+			l = { "<cmd>Telescope gh gist<cr>", "List gists" },
+		},
+		r = {
+			name = "github runs",
+			l = { "<cmd>Telescope gh run<cr>", "List runs" },
+		},
 	},
 	h = {
 		name = "+help",
