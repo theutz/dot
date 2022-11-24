@@ -13,6 +13,7 @@
     - pnpm
     - lefthook
     - fish
+    - fisher
 
 - shell:
     - [pnpm install, Setup pnpm workspace]
