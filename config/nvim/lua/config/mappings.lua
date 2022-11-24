@@ -143,6 +143,7 @@ local leader = {
 			s = { "<cmd>PackerStatus<cr>", "Status" },
 			i = { "<cmd>PackerInstall<cr>", "Install" },
 			c = { "<cmd>PackerCompile<cr>", "Compile" },
+			t = { "<cmd>Telescope packer<cr>", "Search packages" },
 		},
 	},
 	o = {

@@ -8,6 +8,7 @@ local M = {
 		{ "nvim-telescope/telescope-symbols.nvim", module = "telescope._extensions.symbols" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", module = "telescope._extensions.fzf", run = "make" },
 		{ "benfowler/telescope-luasnip.nvim", module = "telescope._extensions.luasnip" },
+		{ "nvim-telescope/telescope-packer.nvim", module = "telescope._extensions.packer" },
 	},
 }
 
@@ -108,6 +109,7 @@ function M.config()
 	telescope.load_extension("file_browser")
 	telescope.load_extension("notify")
 	telescope.load_extension("luasnip")
+	telescope.load_extension("packer")
 	-- telescope.load_extension("project")
 end
 
