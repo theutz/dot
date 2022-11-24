@@ -1,4 +1,5 @@
 local M = {
+	event = "User PackerDefered",
 	module = "neotest",
 	requires = {
 		"nvim-lua/plenary.nvim",
@@ -9,10 +10,36 @@ local M = {
 	},
 }
 
-function M.init()
+function M.config()
+	require("neotest").setup({
+		log_level = vim.log.levels.DEBUG,
+		summary = {
+			enabled = true,
+			expand_errors = true,
+		},
+		diagnostic = {
+			enabled = true,
+		},
+		output = {
+			enabled = true,
+			open_on_run = true,
+		},
+		adapters = {
+			require("neotest-pest"),
+			require("neotest-plenary"),
+			require("neotest-jest"),
+		},
+	})
+
 	require("which-key").register({
 		["<leader>r"] = {
 			name = "test",
+			s = {
+				function()
+					require("neotest").summary.toggle()
+				end,
+				"Show summary",
+			},
 			r = {
 				function()
 					require("neotest").run.run()
@@ -31,22 +58,24 @@ function M.init()
 				end,
 				"Run directory",
 			},
-			s = {
+			a = {
 				function()
 					require("neotest").run.run({ suite = true })
 				end,
 				"Run suite",
 			},
-		},
-	})
-end
-
-function M.config()
-	require("neotest").setup({
-		adapters = {
-			require("neotest-plenary"),
-			require("neotest-pest")({}),
-			require("neotest-jest"),
+			o = {
+				function()
+					require("neotest").output.open({ enter = true, short = true })
+				end,
+				"Show short output",
+			},
+			O = {
+				function()
+					require("neotest").output.open({ enter = true, short = false })
+				end,
+				"Show full output",
+			},
 		},
 	})
 end
