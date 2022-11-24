@@ -191,6 +191,7 @@ local leader = {
 		["."] = { "<cmd>Telescope resume<cr>", "Resume previous search" },
 		n = { "<cmd>Telescope notify<cr>", "Notifications" },
 		["#"] = { "<cmd>Telescope heading<cr>", "Headings" },
+		y = { "<cmd>Telescope yank_history<cr>", "Yank history" },
 		e = { "<cmd>Telescope emoji<cr>", "Emoji" },
 	},
 	t = {
