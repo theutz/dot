@@ -27,6 +27,7 @@
 - link:
     ~/.gitconfig:
     ~/.tmux.conf:
+    ~/.nbrc:
     ~/.config/:
       path: config/*
       glob: true
