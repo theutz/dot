@@ -190,6 +190,7 @@ local leader = {
 		m = { "<cmd>Telescope marks<cr>", "Jump to Mark" },
 		["."] = { "<cmd>Telescope resume<cr>", "Resume previous search" },
 		n = { "<cmd>Telescope notify<cr>", "Notifications" },
+		["#"] = { "<cmd>Telescope heading<cr>", "Headings" },
 	},
 	t = {
 		name = "toggle",
