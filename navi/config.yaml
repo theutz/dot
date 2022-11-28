@@ -31,5 +31,5 @@ cheats:
 # tags: git,!checkout # equivalent to the --tag-rules option
 
 shell:
-  command: bash # shell used for shell out. possible values: bash, zsh, dash, ...
+  command: fish # shell used for shell out. possible values: bash, zsh, dash, ...
   # finder_command: bash # similar, but for fzf's internals
