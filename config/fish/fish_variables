@@ -5,9 +5,14 @@ SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_brewh:brew\x20home
 SETUVAR _fish_abbr_brewi:brew\x20install
+SETUVAR _fish_abbr_brews:brew\x20search
 SETUVAR _fish_abbr_brewx:brew\x20uninstall
 SETUVAR _fish_abbr_c:composer
+SETUVAR _fish_abbr_caski:brew\x20install\x20\x2d\x2dcask
+SETUVAR _fish_abbr_casks:brew\x20search\x20\x2d\x2dcask
 SETUVAR _fish_abbr_e:nvim
+SETUVAR _fish_abbr_gco:git\x20checkout
+SETUVAR _fish_abbr_gfm:git\x20pull
 SETUVAR _fish_abbr_gwS:git\x20status
 SETUVAR _fish_abbr_gws:git\x20status\x20\x2d\x2dshort
 SETUVAR _fisher_upgraded_to_4_4:\x1d
