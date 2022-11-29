@@ -37,8 +37,7 @@ function __yabai_echo_argspec
     return 0
 end
 
-function __yabai_message_domains
-    set -l defs '
+set -l message_domains '
 config\tGet or set the value of <global setting>
 display\tControl the given display
 space\tControl the given space
@@ -47,36 +46,31 @@ query\tRetrieve information about displays, spaces or windows
 rule\tAdd, remove, or list rules
 signal\tReact to some event that has been processed
 '
-    __yabai_echo_argspec $argv $defs
-end
 
 complete -k -c yabai \
     -n "__fish_seen_argument -s m -l message" \
-    -n "not __fish_seen_subcommand_from (__yabai_message_domains -k)" \
-    -a "(__yabai_message_domains)"
+    -n "not __fish_seen_subcommand_from (__yabai_echo_argspec -k '$message_domains')" \
+    -a "(__yabai_echo_argspec \"$message_domains\")"
 
 # ROOT > --message > config > <setting>
-function __yabai_config_settings
-    set -l defs '
+set -l config_settings '
 debug_output\tEnable output of debug information to stdout.
 mouse_follows_focus\tWhen focusing a window, put the mouse at it\'s center.
 '
-    __yabai_echo_argspec $argv $defs
-end
 
 complete -x -k -c yabai \
     -n "__fish_seen_argument -s m -l message" \
     -n "__fish_seen_subcommand_from config" \
-    -n "not __fish_seen_subcommand_from (__yabai_config_settings -k)" \
-    -a "(__yabai_config_settings)"
+    -n "not __fish_seen_subcommand_from (__yabai_echo_argspec \"$config_settings\" -k)" \
+    -a "(__yabai_echo_argspec \"$config_settings\")"
 
-function __yabai_boolean_values
-    set -l defs 'on\tEnable option\noff\tDisable option'
-    __yabai_echo_argspec $argv $defs
-end
+set -l boolean_values '
+on\tEnable option
+off\tDisable option
+'
 
 complete -x -k -c yabai \
     -n "__fish_seen_argument -s m -l message" \
     -n "__fish_seen_subcommand_from config" \
     -n "__fish_prev_arg_in debug_output" \
-    -a "(__yabai_boolean_values)"
+    -a "(__yabai_echo_argspec \"$boolean_values\")"
