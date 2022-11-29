@@ -67,21 +67,41 @@ function __yabai_at_space_selector
     and not __fish_seen_argument config
     and __fish_prev_arg_in -- --space
     and return 0
-
     return 1
 end
 
 complete -c yabai -n __yabai_at_space_selector -a "$space_selectors" -d "Get or set the value of <space setting>"
 
-# `yabai -m config [--space=] <ARG>`
-set -l config_settings '
-debug_output\tEnable output of debug information to stdout.
-mouse_follows_focus\tWhen focusing a window, put the mouse at it\'s center.
+# `yabai -m config`
+set -g config_settings '
+debug_output\t"Enable output of debug information to stdout."
+mouse_follows_focus\t"When focusing a window, put the mouse at it\'s center."
 '
 
-complete -x -c yabai -n "__fish_seen_argument -s m -l message" -n "__fish_seen_subcommand_from config" -n "not __fish_seen_argument -l space" -n "not __fish_seen_subcommand_from (__yabai_echo_argspec -k \"$config_settings\")" -a "--space\t'Get or set the value of <space setting>'"
+function __yabai_at_config_message
+    __fish_seen_argument -s m -l message
+    and __fish_seen_subcommand_from config
+    and not __fish_any_arg_in -- --space
+    and not __fish_seen_subcommand_from (echo -e "$config_settings" | awk '{print $1}')
+    and return 0
+    return 1
+end
 
-complete -x -c yabai -n "__fish_seen_argument -s m -l message" -n "__fish_seen_subcommand_from config" -n "not __fish_prev_arg_in --space" -n "not __fish_seen_subcommand_from (__yabai_echo_argspec -k \"$config_settings\")" -a "(__yabai_echo_argspec \"$config_settings\")"
+complete -x -c yabai -n __yabai_at_config_message -a "--space\t'Get or set the value of <space setting>'"
+
+# `yabai -m config [--space=] <ARG>`
+function __yabai_at_config_message_after_space
+    set -l tokens (commandline -co)
+    contains -- -m $tokens
+    or contains -- --message $tokens
+    and contains config $tokens
+    and not string match -- --space $tokens[-1]
+    and not contains -- $tokens[-1] (echo -e "$config_settings" | awk '{print $1}')
+    and return 0
+    return 1
+end
+
+complete -x -c yabai -n __yabai_at_config_message_after_space -a "$config_settings"
 
 # `yabai -m config debug_output <ARG>`
 set -l boolean_values '
@@ -89,4 +109,14 @@ on\tEnable option
 off\tDisable option
 '
 
-complete -x -c yabai -n "__fish_seen_argument -s m -l message" -n "__fish_seen_subcommand_from config" -n "__fish_prev_arg_in debug_output" -a "(__yabai_echo_argspec \"$boolean_values\")"
+function __yabai_at_debug_output_setting
+    set -l tokens (commandline -co)
+    contains -- -m $tokens
+    or contains -- --message $tokens
+    and contains -- config $tokens
+    and string match -q -- debug_output $tokens[-1]
+    and return 0
+    return 1
+end
+
+complete -x -c yabai -n __yabai_at_debug_output_setting -a "$boolean_values"
