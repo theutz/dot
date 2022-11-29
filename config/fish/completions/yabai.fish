@@ -19,29 +19,31 @@ complete -f -c yabai # Disable file completion by default
 
 # `yabai -v`
 # `yabai --version`
-complete -f -x -c yabai -s v -l version -n __fish_is_first_arg \
+complete -x -c yabai -s v -l version -n __fish_is_first_arg \
     -d "Print the version and exit."
 
 # `yabai -V`
 # `yabai --verbose`
 complete -x -c yabai -s V -l verbose -n __fish_is_first_arg \
     -d "Output debug information to stdout."
+
+# `yabai --uninstall-sa`
 complete -x -c yabai -l uninstall-sa -n __fish_is_first_arg \
     -d "Uninstall the scripting-addition. Must be run as root."
+
+# `yabai --load-sa`
 complete -x -c yabai -l load-sa -n __fish_is_first_arg \
     -d "Load the scripting-addition into Dock.app."
 
 # `yabai -c`
 # `yabai --config`
-complete -r -c yabai -s c -l config \
+complete -r -c yabai -s c -l config -n __fish_is_first_arg \
     -d "Use the specified configuration file."
 
-complete -r -c yabai -n "__fish_prev_arg_in c config" -a __fish_complete_path
+complete -F -r -c yabai -n "__fish_prev_arg_in -- -c --config" -a "(__fish_complete_path)"
 
 # `yabai -m`
 # `yabai --message`
-complete -x -c yabai -s m -l message -n __fish_is_first_arg \
-    -d "Send message to a running instance of yabai."
 
 set -l message_domains '
 config\t"Get or set the value of <global setting>"
@@ -53,7 +55,9 @@ rule\t"Add, remove, or list rules"
 signal\t"React to some event that has been processed"
 '
 
-complete -c yabai -n "__fish_prev_arg_in -- -m --message" -a "$message_domains"
+complete -x -c yabai -s m -l message -n "__fish_is_nth_token 1" \
+    -a "$message_domains" \
+    -d "Send message to a running instance of yabai."
 
 # `yabai -m config --space <ARG>`
 set -l space_selectors '
