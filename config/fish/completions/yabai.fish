@@ -105,8 +105,8 @@ complete -x -c yabai -n __yabai_at_config_message_after_space -a "$config_settin
 
 # `yabai -m config debug_output <ARG>`
 set -l boolean_values '
-on\tEnable option
-off\tDisable option
+on\t"Enable option"
+off\t"Disable option"
 '
 
 function __yabai_at_debug_output_setting
