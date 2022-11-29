@@ -53,30 +53,29 @@ rule\t"Add, remove, or list rules"
 signal\t"React to some event that has been processed"
 '
 
-function __yabai_at_message_domains
+complete -c yabai -n "__fish_prev_arg_in -- -m --message" -a "$message_domains"
+
+# `yabai -m config --space <ARG>`
+set -l space_selectors '
+prev\t"Previous space"
+next\t"Next space"
+first\t"First space"
+last\t"Last space"
+recent\t"Most recently visited space"
+\#\t"Mission control index (1-based)"
+\"\"\t"Any arbitrary string used as a label"
+'
+
+function __yabai_at_space_selector
     __fish_seen_argument -s m -l message
-    and not __fish_seen_subcommand_from (echo -e "$message_domains" | awk '{print $1}')
+    and not __fish_seen_argument config
+    and __fish_prev_arg_in -- --space
     and return 0
 
     return 1
 end
 
-complete -c yabai -n __yabai_at_message_domains -a "$message_domains"
-
-# `yabai -m config --space <ARG>`
-set -l space_selectors '
-prev\tPrevious space
-next\tNext space
-first\tFirst space
-last\tLast space
-recent\tMost recently visited space
-'
-
-complete -c yabai \
-    -n "__fish_seen_argument -s m -l message" \
-    -n "__fish_seen_argument config" \
-    -n "__fish_prev_arg_in --space" \
-    -a "(__yabai_echo_argspec \"$space_selectors\")" \
+complete -c yabai -n __yabai_at_space_selector -a "$space_selectors" \
     -d "Get or set the value of <space setting>"
 
 # `yabai -m config [--space=] <ARG>`
