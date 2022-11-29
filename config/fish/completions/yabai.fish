@@ -40,24 +40,28 @@ complete -r -c yabai -n "__fish_prev_arg_in c config" -a __fish_complete_path
 
 # `yabai -m`
 # `yabai --message`
-complete -x -c yabai -s m -l message \
-    -n __fish_is_first_arg \
+complete -x -c yabai -s m -l message -n __fish_is_first_arg \
     -d "Send message to a running instance of yabai."
 
 set -l message_domains '
-config\tGet or set the value of <global setting>
-display\tControl the given display
-space\tControl the given space
-window\tControl the given window
-query\tRetrieve information about displays, spaces or windows
-rule\tAdd, remove, or list rules
-signal\tReact to some event that has been processed
+config\t"Get or set the value of <global setting>"
+display\t"Control the given display"
+space\t"Control the given space"
+window\t"Control the given window"
+query\t"Retrieve information about displays, spaces or windows"
+rule\t"Add, remove, or list rules"
+signal\t"React to some event that has been processed"
 '
 
-complete -c yabai \
-    -n "__fish_seen_argument -s m -l message" \
-    -n "not __fish_seen_subcommand_from (__yabai_echo_argspec -k '$message_domains')" \
-    -a "(__yabai_echo_argspec \"$message_domains\")"
+function __yabai_at_message_domains
+    __fish_seen_argument -s m -l message
+    and not __fish_seen_subcommand_from (echo -e "$message_domains" | awk '{print $1}')
+    and return 0
+
+    return 1
+end
+
+complete -c yabai -n __yabai_at_message_domains -a "$message_domains"
 
 # `yabai -m config --space <ARG>`
 set -l space_selectors '
