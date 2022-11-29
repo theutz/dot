@@ -35,6 +35,7 @@ query\tRetrieve information about displays, spaces or windows
 rule\tAdd, remove, or list rules
 signal\tReact to some event that has been processed
 '
+
     if set -lq _flag_keys
         echo -ne $defs | awk '{print $1}'
         return 0
@@ -44,7 +45,7 @@ signal\tReact to some event that has been processed
     return 0
 end
 
-complete -c yabai \
+complete -k -c yabai \
     -n "__fish_seen_argument -s m -l message" \
     -n "not __fish_seen_subcommand_from (__yabai_message_domains -k)" \
     -a "(__yabai_message_domains)"
@@ -56,8 +57,9 @@ function __yabai_config_settings
 debug_output\tEnable output of debug information to stdout.
 mouse_follows_focus\tWhen focusing a window, put the mouse at it\'s center.
 '
+
     if set -lq _flag_keys
-        echo -e (echo $settings | awk '{print $1}')
+        echo -ne $settings | awk '{print $1}'
         return 0
     end
 
@@ -65,7 +67,28 @@ mouse_follows_focus\tWhen focusing a window, put the mouse at it\'s center.
     return 0
 end
 
-complete -x -c yabai \
+complete -x -k -c yabai \
     -n "__fish_seen_argument -s m -l message" \
     -n "__fish_seen_subcommand_from config" \
+    -n "not __fish_seen_subcommand_from (__yabai_config_settings -k)" \
     -a "(__yabai_config_settings)"
+
+function __yabai_boolean_values
+    argparse k/keys -- $argv
+
+    set -l values 'on\tEnable option\noff\tDisable option'
+
+    if set -lq _flag_keys
+        echo -ne $values | awk '{print $1}'
+        return 0
+    end
+
+    echo -ne $values
+    return 0
+end
+
+complete -x -k -c yabai \
+    -n "__fish_seen_argument -s m -l message" \
+    -n "__fish_seen_subcommand_from config" \
+    -n "__fish_prev_arg_in debug_output" \
+    -a "(__yabai_boolean_values)"
