@@ -19,27 +19,24 @@ complete -f -c yabai # Disable file completion by default
 
 # `yabai -v`
 # `yabai --version`
-complete -x -c yabai -s v -l version \
-    -n __fish_is_first_arg \
+complete -f -x -c yabai -s v -l version -n __fish_is_first_arg \
     -d "Print the version and exit."
 
 # `yabai -V`
 # `yabai --verbose`
-complete -x -c yabai -s V -l verbose \
-    -n __fish_is_first_arg \
+complete -x -c yabai -s V -l verbose -n __fish_is_first_arg \
     -d "Output debug information to stdout."
-complete -x -c yabai -l uninstall-sa \
-    -n __fish_is_first_arg \
+complete -x -c yabai -l uninstall-sa -n __fish_is_first_arg \
     -d "Uninstall the scripting-addition. Must be run as root."
-complete -x -c yabai -l load-sa \
-    -n __fish_is_first_arg \
+complete -x -c yabai -l load-sa -n __fish_is_first_arg \
     -d "Load the scripting-addition into Dock.app."
 
 # `yabai -c`
 # `yabai --config`
-complete -F -r -c yabai -s c -l config \
-    -n __fish_is_first_arg \
+complete -r -c yabai -s c -l config \
     -d "Use the specified configuration file."
+
+complete -r -c yabai -n "__fish_prev_arg_in c config" -a __fish_complete_path
 
 # `yabai -m`
 # `yabai --message`
