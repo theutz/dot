@@ -23,9 +23,21 @@ complete -x -c yabai -s m -l message \
     -n __fish_is_first_arg \
     -d "Send message to a running instance of yabai."
 
-function __yabai_message_domains
-    argparse k/keys -- $argv
+function __yabai_echo_argspec
+    argparse --min-args=1 --max-args=2 k/keys -- $argv
 
+    set -l defs $argv[1]
+
+    if set -lq _flag_keys
+        echo -ne $defs | awk '{print $1}'
+        return 0
+    end
+
+    echo -en $defs
+    return 0
+end
+
+function __yabai_message_domains
     set -l defs '
 config\tGet or set the value of <global setting>
 display\tControl the given display
@@ -35,14 +47,7 @@ query\tRetrieve information about displays, spaces or windows
 rule\tAdd, remove, or list rules
 signal\tReact to some event that has been processed
 '
-
-    if set -lq _flag_keys
-        echo -ne $defs | awk '{print $1}'
-        return 0
-    end
-
-    echo -e $defs
-    return 0
+    __yabai_echo_argspec $argv $defs
 end
 
 complete -k -c yabai \
@@ -52,19 +57,11 @@ complete -k -c yabai \
 
 # ROOT > --message > config > <setting>
 function __yabai_config_settings
-    argparse k/keys -- $argv
-    set -l settings '
+    set -l defs '
 debug_output\tEnable output of debug information to stdout.
 mouse_follows_focus\tWhen focusing a window, put the mouse at it\'s center.
 '
-
-    if set -lq _flag_keys
-        echo -ne $settings | awk '{print $1}'
-        return 0
-    end
-
-    echo -e $settings
-    return 0
+    __yabai_echo_argspec $argv $defs
 end
 
 complete -x -k -c yabai \
@@ -74,17 +71,8 @@ complete -x -k -c yabai \
     -a "(__yabai_config_settings)"
 
 function __yabai_boolean_values
-    argparse k/keys -- $argv
-
-    set -l values 'on\tEnable option\noff\tDisable option'
-
-    if set -lq _flag_keys
-        echo -ne $values | awk '{print $1}'
-        return 0
-    end
-
-    echo -ne $values
-    return 0
+    set -l defs 'on\tEnable option\noff\tDisable option'
+    __yabai_echo_argspec $argv $defs
 end
 
 complete -x -k -c yabai \
