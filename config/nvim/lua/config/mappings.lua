@@ -162,6 +162,15 @@ local leader = {
 			t = { "<cmd>Telescope packer<cr>", "Search packages" },
 		},
 	},
+	n = {
+		name = "notifications",
+		x = {
+			function()
+				require("notify").dismiss()
+			end,
+			"Dismiss all",
+		},
+	},
 	o = {
 		name = "+open",
 		p = { "<cmd>Peek<cr>", "Peek (Markdown Preview)" },
@@ -178,6 +187,13 @@ local leader = {
 		s = { [[<cmd>lua require("persistence").load()<cr>]], "Restore Session" },
 		l = { [[<cmd>lua require("persistence").load({ last = true })<cr>]], "Restore Last Session" },
 		d = { [[<cmd>lua require("persistence").stop()<cr>]], "Stop Current Session" },
+		r = {
+			function()
+				vim.cmd([[:so $MYVIMRC]])
+				require("notify").notify("Config reloaded!", vim.log.levels.INFO)
+			end,
+			"Reload Config",
+		},
 	},
 	s = {
 		name = "+search",
