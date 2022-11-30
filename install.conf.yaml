@@ -15,6 +15,7 @@
     - fish
     - fisher
     - hammerspoon
+    - selene
 
 - shell:
     - [pnpm install, Setup pnpm workspace]
