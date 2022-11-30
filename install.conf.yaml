@@ -14,6 +14,7 @@
     - lefthook
     - fish
     - fisher
+    - hammerspoon
 
 - shell:
     - [pnpm install, Setup pnpm workspace]
@@ -29,6 +30,7 @@
     ~/.gitconfig:
     ~/.tmux.conf:
     ~/.nbrc:
+    ~/.hammerspoon:
     ~/.config/:
       path: config/*
       glob: true
