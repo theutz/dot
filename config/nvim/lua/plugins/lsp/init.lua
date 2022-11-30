@@ -4,13 +4,14 @@ local M = {
 
 function M.config()
 	require("neodev").setup({
-		-- debug = true,
-		-- experimental = {
-		-- 	pathStrict = true,
-		-- },
-		-- library = {
-		--   runtime = "~/projects/neovim/runtime/",
-		-- },
+		override = function(root_dir, library)
+			if root_dir:match("dot") then
+				library.enabled = true
+				library.plugins = true
+				library.runtime = true
+				library.types = true
+			end
+		end,
 	})
 	require("mason")
 	require("plugins.lsp.diagnostics").setup()

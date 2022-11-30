@@ -15,7 +15,7 @@ function M.setup(options)
 			nls.builtins.formatting.shfmt,
 			nls.builtins.diagnostics.markdownlint,
 			-- nls.builtins.diagnostics.luacheck,
-			nls.builtins.diagnostics.selene,
+			-- nls.builtins.diagnostics.selene,
 			nls.builtins.code_actions.gitsigns,
 			nls.builtins.formatting.isort,
 			nls.builtins.formatting.black,

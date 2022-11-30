@@ -1,7 +1,6 @@
 local wf = hs.window.filter
 local grid = hs.grid
 local hk = hs.hotkey
-local appl = hs.application
 
 local mods = { "ctrl", "alt", "cmd" }
 
