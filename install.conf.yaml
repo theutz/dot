@@ -37,4 +37,5 @@
     ~/Library/Application Support/navi/config.yaml: navi/config.yaml
 
 - shell:
+    - [scripts/hammerspoon.fish, Install SpoonInstaller]
     - [~/.tmux/plugins/tpm/bin/install_plugins, Install Tmux Plugins]

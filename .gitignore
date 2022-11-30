@@ -2,3 +2,4 @@ config/nvim/plugin/packer_compiled.lua
 config/nvim/sessions
 node_modules
 config/kitty/kitty.conf.bak
+hammerspoon/Spoons
