@@ -9,21 +9,24 @@ function M.config()
 		highlight = {
 			groups = {
 				InclineNormal = {
-					guibg = "#FC56B1",
-					guifg = colors.black,
+					guibg = colors.sapphire,
+					guifg = colors.crust,
 					-- gui = "bold",
 				},
 				InclineNormalNC = {
-					guifg = "#FC56B1",
-					guibg = colors.black,
+					guibg = colors.base,
+					guifg = colors.sapphire,
 				},
 			},
 		},
 		window = {
 			margin = {
-				vertical = 0,
+				vertical = 1,
 				horizontal = 1,
 			},
+		},
+		hide = {
+			cursorline = "focused_win",
 		},
 		render = function(props)
 			local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
