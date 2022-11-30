@@ -14,7 +14,6 @@
     - lefthook
     - fish
     - fisher
-    - yabai
 
 - shell:
     - [pnpm install, Setup pnpm workspace]
