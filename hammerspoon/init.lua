@@ -2,7 +2,7 @@ local log = require("log")
 
 hs.loadSpoon("SpoonInstall")
 
-spoon.SpoonInstall:andUse("EmmyLua")
+--spoon.SpoonInstall:andUse("EmmyLua")
 spoon.SpoonInstall:andUse("ReloadConfiguration", { start = true })
 
 require("utzwm")
