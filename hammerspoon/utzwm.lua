@@ -10,6 +10,6 @@ hk.bindSpec({ mods, "return" }, function()
 	grid.show()
 end)
 
-wf.new(true):subscribe(wf.windowFocused, function(win)
+utzwmwatcher = wf.new(true):subscribe(wf.windowFocused, function(win)
 	grid.snap(win)
 end)

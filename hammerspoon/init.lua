@@ -1,15 +1,9 @@
-hs.logger.defaultLogLevel = "info"
-local log = hs.logger.new("utz")
+local log = require("log")
 
 hs.loadSpoon("SpoonInstall")
 
+spoon.SpoonInstall:andUse("EmmyLua")
 spoon.SpoonInstall:andUse("ReloadConfiguration", { start = true })
-
-local make_annotations = coroutine.create(function()
-	hs.coroutineApplicationYield()
-	spoon.SpoonInstall:andUse("EmmyLua")
-	log:i("Hammerspoon annotations written")
-end)
 
 require("utzwm")
 
@@ -32,7 +26,4 @@ hs.hotkey.bind({ "cmd" }, "g", function()
 	app:mainWindow().setShadows(false)
 end)
 
-log:i("Hammerspoon Reloaded")
-hs.notify.show("Hammerspoon", "", "Config reloaded")
-
-coroutine.resume(make_annotations)
+hs.alert.show("Hammerspoon Reloaded!")
