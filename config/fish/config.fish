@@ -23,3 +23,7 @@ end
 set -gx PNPM_HOME /Users/michaelutz/Library/pnpm
 set -gx PATH "$PNPM_HOME" $PATH
 # pnpm end
+
+# Ruby Verison Manager
+rvm default
+# END RVM
