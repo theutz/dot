@@ -31,6 +31,7 @@ function M.config()
 		cssls = {},
 		dockerls = {},
 		tsserver = {},
+		solargraph = {},
 		svelte = {},
 		eslint = {},
 		html = {},
