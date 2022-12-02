@@ -2,6 +2,13 @@ local wf = hs.window.filter
 
 local mods = { "ctrl", "alt", "cmd" }
 
+spoon.SpoonInstall:andUse("WindowScreenLeftAndRight", {
+	hotkeys = {
+		screen_left = { mods, "[" },
+		screen_right = { mods, "]" },
+	},
+})
+
 hs.grid.setGrid("6x4").setMargins("20x20")
 
 hs.hotkey.bind(mods, "/", function()
