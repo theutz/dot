@@ -29,6 +29,8 @@
 
 - link:
     ~/.profile:
+    ~/.bashrc:
+    ~/.bash_profile:
     ~/.gitconfig:
     ~/.tmux.conf:
     ~/.nbrc:
