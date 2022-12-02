@@ -24,6 +24,5 @@ set -gx PNPM_HOME /Users/michaelutz/Library/pnpm
 set -gx PATH "$PNPM_HOME" $PATH
 # pnpm end
 
-# Ruby Verison Manager
-rvm default
-# END RVM
+set -gx LDFLAGS -L/opt/homebrew/opt/ruby/lib
+set -gx CPPFLAGS -I/opt/homebrew/opt/ruby/include
