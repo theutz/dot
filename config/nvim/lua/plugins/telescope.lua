@@ -54,7 +54,7 @@ function M.config()
 			sorting_strategy = "ascending",
 			mappings = {
 				i = {
-					["<c-t>"] = trouble.open_with_trouble,
+					["<c-o>"] = trouble.open_with_trouble,
 					["<C-Down>"] = require("telescope.actions").cycle_history_next,
 					["<C-Up>"] = require("telescope.actions").cycle_history_prev,
 				},
