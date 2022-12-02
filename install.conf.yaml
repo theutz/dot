@@ -28,6 +28,7 @@
       create: true
 
 - link:
+    ~/.profile:
     ~/.gitconfig:
     ~/.tmux.conf:
     ~/.nbrc:
