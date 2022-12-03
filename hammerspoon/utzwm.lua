@@ -1,4 +1,3 @@
-local log = require("log")
 local wf = hs.window.filter
 
 local mods = { "ctrl", "alt", "cmd" }
@@ -10,8 +9,8 @@ spoon.SpoonInstall:andUse("WindowScreenLeftAndRight", {
 	},
 })
 
-local grid = hs.geometry.size(12, 4)
-local margin = hs.geometry.size(16, 16)
+local grid = hs.geometry.size(12, 4) or {}
+local margin = hs.geometry.size(16, 16) or {}
 
 hs.grid.setGrid(grid).setMargins(margin)
 
@@ -26,9 +25,11 @@ hs.hotkey.bind(mods, "h", function()
 
 	local initial = hs.geometry.new("0,0 6x4")
 
+	---@type table
 	local big = initial:copy()
 	big.w = big.w + 2
 
+	---@type table
 	local small = initial:copy()
 	small.w = small.w - 2
 
@@ -49,10 +50,12 @@ hs.hotkey.bind(mods, "l", function()
 
 	local initial = hs.geometry.new("6,0 6x4")
 
+	---@type table
 	local big = initial:copy()
 	big.w = big.w + 2
 	big.x = big.x - 2
 
+	---@type table
 	local small = initial:copy()
 	small.w = small.w - 2
 	small.x = small.x + 2
@@ -74,10 +77,12 @@ hs.hotkey.bind(mods, "k", function()
 
 	local initial = hs.geometry.new("0,0 12x2")
 
+	---@type table
 	local right_corner = initial:copy()
 	right_corner.w = 6
 	right_corner.x = 6
 
+	---@type table
 	local left_corner = initial:copy()
 	left_corner.w = 6
 	left_corner.x = 0
@@ -99,10 +104,12 @@ hs.hotkey.bind(mods, "j", function()
 
 	local initial = hs.geometry.new("0,2 12x2")
 
+	---@type table
 	local right_corner = initial:copy()
 	right_corner.w = 6
 	right_corner.x = 6
 
+	---@type table
 	local left_corner = initial:copy()
 	left_corner.w = 6
 	left_corner.x = 0
@@ -124,10 +131,12 @@ hs.hotkey.bind(mods, "return", function()
 
 	local initial = hs.geometry.new({ 0, 0, grid.w, grid.h })
 
+	---@type table
 	local two_thirds = initial:copy()
 	two_thirds.w = two_thirds.w - 4
 	two_thirds.x = two_thirds.x + 2
 
+	---@type table
 	local half = initial:copy()
 	half.w = half.w - 6
 	half.x = half.x + 3
@@ -145,13 +154,14 @@ end)
 
 hs.hotkey.bind(mods, "space", function()
 	local win = hs.window.frontmostWindow()
+	---@type table
 	local frame = win:centerOnScreen():frame()
 	frame.y = frame.y + margin.h - 3 -- not sure why we need this 3, but we do
 	win:move(frame)
 end)
 
-utzwmwatcher = wf.new(true)
+Utzwmwatcher = wf.new(true)
 
-utzwmwatcher:subscribe(wf.windowFocused, function(win)
+Utzwmwatcher:subscribe(wf.windowFocused, function(win)
 	hs.grid.snap(win)
 end)

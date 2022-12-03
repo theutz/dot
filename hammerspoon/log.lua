@@ -1,2 +1,6 @@
 hs.logger.defaultLogLevel = "info"
-return hs.logger.new("utz")
+
+---@type table
+local log = hs.logger.new("utz")
+
+return log
