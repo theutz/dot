@@ -36,6 +36,7 @@ function M.config()
 
 	local telescope = require("telescope")
 	local borderless = true
+	local fb_actions = require("telescope._extensions.file_browser.actions")
 	telescope.setup({
 		extensions = {
 			-- fzf = {
@@ -45,6 +46,14 @@ function M.config()
 			--   case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			--   -- the default case_mode is "smart_case"
 			-- },
+			file_browser = {
+				mappings = {
+					i = {
+						["<C-t>"] = "select_tab_drop",
+						["<M-w>"] = fb_actions.change_cwd,
+					},
+				},
+			},
 		},
 		defaults = {
 			layout_strategy = "horizontal",
