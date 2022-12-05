@@ -165,7 +165,8 @@ hs.hotkey.bind(mods, "space", function()
 	win:move(frame)
 end)
 
-AutoStashApps = wf.new({ "Messages", "Telegram", "WhatsApp", "Slack", "Spotify", "Hammerspoon", "Surfshark" })
+AutoStashApps =
+	wf.new({ "Messages", "Telegram", "WhatsApp", "Slack", "Spotify", "Hammerspoon", "Surfshark", "Calendar" })
 
 AutoStashApps:subscribe({ wf.windowVisible, wf.windowFocused }, function(win)
 	---@type hs.screen | nil
