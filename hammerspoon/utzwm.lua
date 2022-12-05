@@ -10,7 +10,7 @@ spoon.SpoonInstall:andUse("WindowScreenLeftAndRight", {
 	},
 })
 
-local gridSize = hs.geometry.size(12, 4) or {}
+local gridSize = hs.geometry.size(12, 8) or {}
 local gridMargin = hs.geometry.size(16, 16) or {}
 
 hs.grid.setGrid(gridSize).setMargins(gridMargin)
@@ -24,7 +24,7 @@ hs.hotkey.bind(mods, "h", function()
 	local win = hs.window.frontmostWindow()
 	local current = hs.grid.get(win)
 
-	local initial = hs.geometry.new("0,0 6x4")
+	local initial = hs.geometry.new("0,0 6x8")
 
 	---@type table
 	local big = initial:copy()
@@ -49,7 +49,7 @@ hs.hotkey.bind(mods, "l", function()
 	local win = hs.window.frontmostWindow()
 	local current = hs.grid.get(win)
 
-	local initial = hs.geometry.new("6,0 6x4")
+	local initial = hs.geometry.new("6,0 6x8")
 
 	---@type table
 	local big = initial:copy()
@@ -76,7 +76,7 @@ hs.hotkey.bind(mods, "k", function()
 	local win = hs.window.frontmostWindow()
 	local current = hs.grid.get(win)
 
-	local initial = hs.geometry.new("0,0 12x2")
+	local initial = hs.geometry.new("0,0 12x4")
 
 	---@type table
 	local right_corner = initial:copy()
@@ -103,7 +103,7 @@ hs.hotkey.bind(mods, "j", function()
 	local win = hs.window.frontmostWindow()
 	local current = hs.grid.get(win)
 
-	local initial = hs.geometry.new("0,2 12x2")
+	local initial = hs.geometry.new("0,4 12x4")
 
 	---@type table
 	local right_corner = initial:copy()
@@ -161,7 +161,7 @@ hs.hotkey.bind(mods, "space", function()
 	win:move(frame)
 end)
 
-WatchMessagingApps = wf.new({ "Messages", "Telegram", "WhatsApp" })
+WatchMessagingApps = wf.new({ "Messages", "Telegram", "WhatsApp", "Slack" })
 
 WatchMessagingApps:subscribe({
 	[wf.windowVisible] = function(win, name)
@@ -169,7 +169,7 @@ WatchMessagingApps:subscribe({
 		if win:screen() ~= hs.screen.primaryScreen() then
 			win:moveToScreen(hs.screen.primaryScreen())
 		end
-		local grid = { 3, 0, 6, 4 }
+		local grid = { 3, 1, 6, 6 }
 		if hs.grid.get(win) ~= grid then
 			hs.grid.set(win, grid)
 		end
