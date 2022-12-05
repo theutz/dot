@@ -1,3 +1,4 @@
+local log = require("log")
 local wf = hs.window.filter
 
 local mods = { "ctrl", "alt", "cmd" }
@@ -9,10 +10,10 @@ spoon.SpoonInstall:andUse("WindowScreenLeftAndRight", {
 	},
 })
 
-local grid = hs.geometry.size(12, 4) or {}
-local margin = hs.geometry.size(16, 16) or {}
+local gridSize = hs.geometry.size(12, 4) or {}
+local gridMargin = hs.geometry.size(16, 16) or {}
 
-hs.grid.setGrid(grid).setMargins(margin)
+hs.grid.setGrid(gridSize).setMargins(gridMargin)
 
 hs.hotkey.bind(mods, "/", function()
 	hs.grid.show()
@@ -129,7 +130,7 @@ hs.hotkey.bind(mods, "return", function()
 	local win = hs.window.frontmostWindow()
 	local current = hs.grid.get(win)
 
-	local initial = hs.geometry.new({ 0, 0, grid.w, grid.h })
+	local initial = hs.geometry.new({ 0, 0, gridSize.w, gridSize.h })
 
 	---@type table
 	local two_thirds = initial:copy()
@@ -156,12 +157,25 @@ hs.hotkey.bind(mods, "space", function()
 	local win = hs.window.frontmostWindow()
 	---@type table
 	local frame = win:centerOnScreen():frame()
-	frame.y = frame.y + margin.h - 3 -- not sure why we need this 3, but we do
+	frame.y = frame.y + gridMargin.h - 3 -- not sure why we need this 3, but we do
 	win:move(frame)
 end)
 
-Utzwmwatcher = wf.new(true)
+WatchMessagingApps = wf.new({ "Messages", "Telegram", "WhatsApp" })
 
-Utzwmwatcher:subscribe(wf.windowFocused, function(win)
-	hs.grid.snap(win)
-end)
+WatchMessagingApps:subscribe({
+	[wf.windowVisible] = function(win, name)
+		log.i("showing messaging app: " .. name)
+		if win:screen() ~= hs.screen.primaryScreen() then
+			win:moveToScreen(hs.screen.primaryScreen())
+		end
+		local grid = { 3, 0, 6, 4 }
+		if hs.grid.get(win) ~= grid then
+			hs.grid.set(win, grid)
+		end
+	end,
+	[wf.windowUnfocused] = function(win, name)
+		log.i("hiding messaging app: " .. name)
+		win:application():hide()
+	end,
+})
