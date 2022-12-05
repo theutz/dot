@@ -16,7 +16,11 @@ local gridMargin = hs.geometry.size(16, 16) or {}
 hs.grid.setGrid(gridSize).setMargins(gridMargin)
 
 hs.hotkey.bind(mods, "/", function()
-	hs.grid.show()
+	local grid = hs.grid.getGrid()
+	hs.grid.setGrid("6x4")
+	hs.grid.show(function()
+		hs.grid.setGrid(grid)
+	end)
 end)
 
 hs.hotkey.bind(mods, "h", function()
@@ -161,16 +165,29 @@ hs.hotkey.bind(mods, "space", function()
 	win:move(frame)
 end)
 
-WatchMessagingApps = wf.new({ "Messages", "Telegram", "WhatsApp", "Slack" })
+AutoStashApps = wf.new({ "Messages", "Telegram", "WhatsApp", "Slack", "Spotify", "Hammerspoon", "Surfshark" })
 
-WatchMessagingApps:subscribe({ wf.windowVisible, wf.windowFocused }, function(win, name)
-	hs.grid.set(win, { 3, 1, 6, 6 }, hs.screen.primaryScreen())
+AutoStashApps:subscribe({ wf.windowVisible, wf.windowFocused }, function(win)
+	---@type hs.screen | nil
+	local screen = nil
+	local g = hs.geometry.new({ 1, 1, 10, 6 })
+	if #hs.screen.allScreens() > 1 then
+		screen = hs.screen.primaryScreen()
+	end
+	hs.grid.set(win, g, screen)
 end)
 
-WatchMessagingApps:subscribe(wf.windowUnfocused, function(win, name)
-	local screen = hs.screen.primaryScreen()
-	if win:screen() == screen then
-		screen = screen:next()
+AutoStashApps:subscribe(wf.windowUnfocused, function(win)
+	local primaryScreen = hs.screen.primaryScreen()
+	---@type hs.screen | nil
+	local screen = nil
+	local g = hs.geometry.new({ 0, 0, 12, 8 })
+	if #hs.screen.allScreens() > 1 then
+		if win:screen() == primaryScreen then
+			screen = primaryScreen:next()
+		end
+		hs.grid.set(win, g, screen)
+	else
+		win:application():hide()
 	end
-	hs.grid.set(win, { 0, 0, 12, 8 }, screen)
 end)
