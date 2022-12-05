@@ -67,13 +67,26 @@ function M.config()
 			["<tab>"] = cmp.config.disable,
 		},
 		sources = cmp.config.sources({
+			-- { name = "nvim_lua" },
 			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
-			{ name = "buffer" },
+			-- { name = "copilot" },
+		}, {
 			{ name = "path" },
+			{ name = "buffer", keyword_length = 5 },
+		}, {
 			{ name = "emoji" },
 			{ name = "neorg" },
+			-- { name = "gh_issues" },
 		}),
+		-- sources = cmp.config.sources({
+		-- 	{ name = "nvim_lsp" },
+		-- 	{ name = "luasnip" },
+		-- 	{ name = "buffer" },
+		-- 	{ name = "path" },
+		-- 	{ name = "emoji" },
+		-- 	{ name = "neorg" },
+		-- }),
 		formatting = {
 			format = require("plugins.lsp.kind").cmp_format(),
 		},
@@ -82,6 +95,7 @@ function M.config()
 		--   winhighlight = "NormalFloat:NormalFloat,FloatBorder:TelescopeBorder",
 		-- },
 		experimental = {
+			native_menu = false,
 			ghost_text = {
 				hl_group = "LspCodeLens",
 			},
