@@ -163,19 +163,14 @@ end)
 
 WatchMessagingApps = wf.new({ "Messages", "Telegram", "WhatsApp", "Slack" })
 
-WatchMessagingApps:subscribe({
-	[wf.windowVisible] = function(win, name)
-		log.i("showing messaging app: " .. name)
-		if win:screen() ~= hs.screen.primaryScreen() then
-			win:moveToScreen(hs.screen.primaryScreen())
-		end
-		local grid = { 3, 1, 6, 6 }
-		if hs.grid.get(win) ~= grid then
-			hs.grid.set(win, grid)
-		end
-	end,
-	[wf.windowUnfocused] = function(win, name)
-		log.i("hiding messaging app: " .. name)
-		win:application():hide()
-	end,
-})
+WatchMessagingApps:subscribe({ wf.windowVisible, wf.windowFocused }, function(win, name)
+	hs.grid.set(win, { 3, 1, 6, 6 }, hs.screen.primaryScreen())
+end)
+
+WatchMessagingApps:subscribe(wf.windowUnfocused, function(win, name)
+	local screen = hs.screen.primaryScreen()
+	if win:screen() == screen then
+		screen = screen:next()
+	end
+	hs.grid.set(win, { 0, 0, 12, 8 }, screen)
+end)
