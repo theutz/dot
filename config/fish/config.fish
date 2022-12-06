@@ -19,6 +19,9 @@ if status is-interactive
     end
 end
 
+# gpg
+set -gx GPG_TTY "(tty)"
+
 # pnpm
 set -gx PNPM_HOME /Users/michaelutz/Library/pnpm
 set -gx PATH "$PNPM_HOME" $PATH
