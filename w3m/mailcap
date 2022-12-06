@@ -1,1 +1,1 @@
-image/*; kitty +kitten icat --silent --transfer-mode file %s
+image/*; viu %s
