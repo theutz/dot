@@ -291,6 +291,8 @@ local function plugins(use, plugin)
 	})
 
 	plugin("nvim-neotest/neotest")
+
+	use({ "jamessan/vim-gnupg", event = "User PackerDefered" })
 end
 
 return packer.setup(config, plugins)
