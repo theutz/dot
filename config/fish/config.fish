@@ -4,6 +4,10 @@ if status is-interactive
     # navi shell-integration
     navi widget fish | source
 
+    if test (uname) = Darwin
+        set -gx BROWSER open
+    end
+
     # zoxide shell-integration
     zoxide init --cmd cd fish | source
 

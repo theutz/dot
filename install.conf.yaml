@@ -1,11 +1,41 @@
 - clean: ["~"]
 
 - defaults:
+    link:
+      relink: true
+      force: true
+      create: true
     brewfile:
       stdout: true
     brew:
       stdout: false
       stderr: false
+
+- link:
+    ~/.profile:
+    ~/.bashrc:
+    ~/.bash_profile:
+    ~/.gitconfig:
+    ~/.tmux.conf:
+    ~/.nbrc:
+    ~/.hammerspoon:
+      if: "[ (uname) = Darwin ]"
+    ~/.config/:
+      path: config/*
+      glob: true
+    ~/Library/Application Support/navi/config.yaml: navi/config.yaml
+    ~/.newsboat/:
+      path: newsboat/*
+      glob: true
+    ~/.w3m/:
+      path: w3m/*
+      glob: true
+
+- shell:
+    - [pnpm install, Setup pnpm workspace]
+    - [lefthook install, Install lefthook]
+    - [scripts/hammerspoon.fish, Install SpoonInstaller]
+    - [~/.tmux/plugins/tpm/bin/install_plugins, Install Tmux Plugins]
 
 - install-brew: true
 
@@ -16,30 +46,4 @@
     - fisher
     - hammerspoon
     - selene
-
-- shell:
-    - [pnpm install, Setup pnpm workspace]
-    - [lefthook install, Install lefthook]
-
-- defaults:
-    link:
-      relink: true
-      force: true
-      create: true
-
-- link:
-    ~/.profile:
-    ~/.bashrc:
-    ~/.bash_profile:
-    ~/.gitconfig:
-    ~/.tmux.conf:
-    ~/.nbrc:
-    ~/.hammerspoon:
-    ~/.config/:
-      path: config/*
-      glob: true
-    ~/Library/Application Support/navi/config.yaml: navi/config.yaml
-
-- shell:
-    - [scripts/hammerspoon.fish, Install SpoonInstaller]
-    - [~/.tmux/plugins/tpm/bin/install_plugins, Install Tmux Plugins]
+    - newsboat
