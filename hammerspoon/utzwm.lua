@@ -175,6 +175,7 @@ AutoStashApps = wf.new({
 	"Surfshark",
 	"Calendar",
 	"Reeder",
+	"1Password",
 })
 
 AutoStashApps:subscribe({ wf.windowVisible, wf.windowFocused }, function(win)
