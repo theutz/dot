@@ -19,6 +19,8 @@ SETUVAR _fish_abbr_gfm:git\x20pull
 SETUVAR _fish_abbr_gia:git\x20add
 SETUVAR _fish_abbr_gwS:git\x20status
 SETUVAR _fish_abbr_gws:git\x20status\x20\x2d\x2dshort
+SETUVAR _fish_abbr_icat:kitty\x20\x2bkitten\x20icat
+SETUVAR _fish_abbr_mutt:neomutt
 SETUVAR _fish_abbr_yar:brew\x20services\x20restart\x20yabai
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
