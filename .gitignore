@@ -3,3 +3,4 @@ config/nvim/sessions
 node_modules
 config/kitty/kitty.conf.bak
 hammerspoon/Spoons
+timewarrior/data
