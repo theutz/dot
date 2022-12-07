@@ -45,6 +45,7 @@
 - install-brew: true
 
 - brew:
+    - lsd
     - pnpm
     - lefthook
     - fish
