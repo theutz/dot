@@ -235,11 +235,6 @@ local function plugins(use, plugin)
 		module = "spectre",
 	})
 
-	use({
-		"alker0/chezmoi.vim",
-		opt = false,
-	})
-
 	plugin("lukas-reineke/indent-blankline.nvim")
 
 	plugin("akinsho/nvim-toggleterm.lua")
