@@ -1,1 +1,14 @@
-source "gpg -d ~/.config/mutt/passwords.gpg |"
+source "gpg --quiet --decrypt ~/.config/mutt/passwords.gpg |"
+set from = "Michael Utz <michael@theutz.com>"
+set imap_user="michael@theutz.com"
+set spoolfile="imaps://imap.fastmail.com"
+set folder="imaps://imap.fastmail.com/INBOX"
+set record="Sent Items"
+set postponed="Drafts"
+set read_inc=1000
+set write_inc=1000
+set mbox="Archive"
+set mail_check=5
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
