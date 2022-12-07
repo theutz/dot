@@ -33,6 +33,7 @@
     ~/bin/sigmaos:
       path: bin/sigmaos
       glob: true
+    ~/.timewarrior:
 
 - shell:
     - [pnpm install, Setup pnpm workspace]
@@ -52,6 +53,7 @@
     - neomutt
     - ranger
     - pillow
+    - timewarrior
 - cask:
     - hammerspoon
     - kitty
