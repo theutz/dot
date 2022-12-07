@@ -48,5 +48,7 @@
     - newsboat
     - neomutt
     - ranger
+    - pillow
 - cask:
     - hammerspoon
+    - kitty
