@@ -1,0 +1,41 @@
+#vim: ft=muttrc
+
+# set editor to neovim
+set editor = "nvim"
+
+set my_name = "Michael Utz"
+set imap_check_subscribed
+
+# Set preferred view modes
+auto_view text/html text/calendar application/ics # view html automatically
+alternative_order text/html text/plain text/enriched text/*
+
+# main options
+set envelope_from # not sure what this does...
+set edit_headers # show headers when compsoing
+set fast_reply # skip to compose when replying
+set askcc # ask for cc
+set fcc_attach # save attachments with the body
+set forward_format = "Fwd: %s" # format of subject when forwarding
+set forward_decode # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to # reply to Reply to: field
+set reverse_name # reply as whomever it was to
+set include # include message in replies
+set forward_quote # include message in forwards
+set text_flowed
+unset sig_dashes # no dashes before sig
+unset mime_forward # forward attachments as part of body
+unset help # no help bar at the top of index
+
+unset confirmappend # don't ask, just do!
+set quit # don't ask just do!
+unset mark_old # read/new is good enough for me
+set beep_new # bell on new mails
+set pipe_decode #strip headers and eval mimes when piping
+set thorough_search # strip headers and eval mimes before searching
+set timeout = 0
+
+# status bar, date format, finding stuff etc.
+set status_chars = "*%A"
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>-%?p?( %p postponed )?"
