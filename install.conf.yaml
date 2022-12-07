@@ -34,6 +34,7 @@
       path: bin/sigmaos
       glob: true
     ~/.timewarrior:
+    ~/.taskrc:
 
 - shell:
     - [pnpm install, Setup pnpm workspace]
@@ -54,6 +55,7 @@
     - ranger
     - pillow
     - timewarrior
+    - task
 - cask:
     - hammerspoon
     - kitty
