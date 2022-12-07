@@ -1,4 +1,4 @@
-source "gpg --quiet --decrypt ~/.config/mutt/passwords.gpg |"
+source "gpg --quiet --decrypt ~/.config/neomutt/passwords.gpg |"
 set from = "Michael Utz <michael@theutz.com>"
 set imap_user="michael@theutz.com"
 set spoolfile="imaps://imap.fastmail.com"
