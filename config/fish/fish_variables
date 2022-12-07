@@ -22,6 +22,7 @@ SETUVAR _fish_abbr_gws:git\x20status\x20\x2d\x2dshort
 SETUVAR _fish_abbr_icat:kitty\x20\x2bkitten\x20icat
 SETUVAR _fish_abbr_mutt:neomutt
 SETUVAR _fish_abbr_r:ranger
+SETUVAR _fish_abbr_rss:newsboat
 SETUVAR _fish_abbr_yar:brew\x20services\x20restart\x20yabai
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
