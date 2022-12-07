@@ -30,6 +30,9 @@
     ~/.w3m/:
       path: w3m/*
       glob: true
+    ~/bin/sigmaos:
+      path: bin/sigmaos
+      glob: true
 
 - shell:
     - [pnpm install, Setup pnpm workspace]
