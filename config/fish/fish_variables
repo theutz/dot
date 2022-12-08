@@ -15,9 +15,15 @@ SETUVAR _fish_abbr_c:composer
 SETUVAR _fish_abbr_caski:brew\x20install\x20\x2d\x2dcask
 SETUVAR _fish_abbr_casks:brew\x20search\x20\x2d\x2dcask
 SETUVAR _fish_abbr_e:nvim
+SETUVAR _fish_abbr_gcF:git\x20commit\x20\x2d\x2damend
+SETUVAR _fish_abbr_gcam:git\x20commit\x20\x2dam
+SETUVAR _fish_abbr_gcf:git\x20commit\x20\x2d\x2damend\x20\x2d\x2dreuse\x2dmessage\x3dHEAD
+SETUVAR _fish_abbr_gcm:git\x20commit\x20\x2dm
 SETUVAR _fish_abbr_gco:git\x20checkout
 SETUVAR _fish_abbr_gfm:git\x20pull
 SETUVAR _fish_abbr_gia:git\x20add
+SETUVAR _fish_abbr_giaa:git\x20add\x20\x2dA
+SETUVAR _fish_abbr_gpf:git\x20push\x20\x2d\x2dforce\x2dwith\x2dlease
 SETUVAR _fish_abbr_gwS:git\x20status
 SETUVAR _fish_abbr_gws:git\x20status\x20\x2d\x2dshort
 SETUVAR _fish_abbr_icat:kitty\x20\x2bkitten\x20icat
