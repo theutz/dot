@@ -76,3 +76,6 @@
 ;; they are implemented.
 
 (setq +org-capture-todo-file "inbox.org")
+
+(after! evil-snipe
+  (setq evil-snipe-spillover-scope 'visible))
