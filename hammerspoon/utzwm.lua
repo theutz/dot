@@ -169,6 +169,7 @@ AutoStashApps = wf.new({
 	"Messages",
 	"Telegram",
 	"WhatsApp",
+	"Discord",
 	"Slack",
 	"Spotify",
 	"Hammerspoon",
