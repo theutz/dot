@@ -12,6 +12,7 @@
       stderr: false
 
 - link:
+    ~/.Brewfile:
     ~/.profile:
     ~/.bashrc:
     ~/.bash_profile:
