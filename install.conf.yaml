@@ -35,6 +35,9 @@
       glob: true
     ~/.timewarrior:
     ~/.taskrc:
+    ~/.doom.d/:
+      path: doom.d/*
+      glob: true
 
 - shell:
     - [pnpm install, Setup pnpm workspace]

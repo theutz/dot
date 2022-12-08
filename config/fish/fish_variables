@@ -63,4 +63,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/opt/homebrew/opt/ruby/bin\x1e/Users/michaelutz/\x2elocal/share/neovim/bin\x1e/opt/homebrew/opt/gnu\x2dsed/libexec/gnubin\x1e/usr/local/bin\x1e/Users/michaelutz/\x2econfig/phpmon/bin\x1e/Users/michaelutz/\x2ecomposer/vendor/bin\x1e/Users/michaelutz/\x2ecargo/bin\x1e/Users/michaelutz/\x2elocal/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/sbin\x1e/Users/michaelutz/bin
+SETUVAR fish_user_paths:/Users/michaelutz/\x2eemacs\x2ed/bin\x1e/opt/homebrew/opt/ruby/bin\x1e/Users/michaelutz/\x2elocal/share/neovim/bin\x1e/opt/homebrew/opt/gnu\x2dsed/libexec/gnubin\x1e/usr/local/bin\x1e/Users/michaelutz/\x2econfig/phpmon/bin\x1e/Users/michaelutz/\x2ecomposer/vendor/bin\x1e/Users/michaelutz/\x2ecargo/bin\x1e/Users/michaelutz/\x2elocal/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/sbin\x1e/Users/michaelutz/bin
