@@ -8,22 +8,35 @@ spoon.SpoonInstall:andUse("ReloadConfiguration", { start = true })
 require("utzwm")
 
 hs.hotkey.bind({ "cmd" }, "g", function()
-	local app = hs.application.get("kitty")
-	if app then
-		if not app:mainWindow() then
-			app:selectMenuItem({ "Shell", "New OS Window" })
-		elseif app:isFrontmost() then
-			app:hide()
-		else
-			app:activate()
-		end
-	else
-		hs.application.launchOrFocus("kitty")
-		app = hs.application.get("kitty")
-	end
+  local app = hs.application.get("kitty")
+  if app then
+    if not app:mainWindow() then
+      app:selectMenuItem({ "Shell", "New OS Window" })
+    elseif app:isFrontmost() then
+      app:hide()
+    else
+      app:activate()
+    end
+  else
+    hs.application.launchOrFocus("kitty")
+    app = hs.application.get("kitty")
+  end
 
-	app:mainWindow():moveToUnit("100,50,0,0")
-	app:mainWindow().setShadows(false)
+  app:mainWindow():moveToUnit("100,50,0,0")
+  app:mainWindow().setShadows(false)
 end)
+
+local hyper = require('hyper')
+
+hyper.bindApp({}, "s", "SigmaOS")
+hyper.bindApp({}, "e", "Emacs")
+hyper.bindApp({}, "k", "kitty")
+hyper.bindApp({}, "f", "Figma")
+hyper.bindApp({}, "c", "Google Chrome")
+hyper.bindApp({}, "p", "Spotify")
+hyper.bindApp({}, "l", "Slack")
+hyper.bindApp({}, "t", "Telegram")
+hyper.bindApp({}, "w", "WhatsApp")
+hyper.bindApp({}, "m", "Messages")
 
 hs.alert.show("Hammerspoon Reloaded!")
