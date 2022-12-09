@@ -8,6 +8,7 @@ SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_brewI:brew\x20info
 SETUVAR _fish_abbr_brewh:brew\x20home
 SETUVAR _fish_abbr_brewi:brew\x20install
+SETUVAR _fish_abbr_brewl:brew\x20services
 SETUVAR _fish_abbr_brews:brew\x20search
 SETUVAR _fish_abbr_brewsr:brew\x20services\x20restart
 SETUVAR _fish_abbr_brewx:brew\x20uninstall
