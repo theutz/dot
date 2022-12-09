@@ -1,8 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export EDITOR:nvim
+SETUVAR --export EDITOR:emacsclient
 SETUVAR --export RUBY_CONFIGURE_OPTS:\x2d\x2dwith\x2dopenssl\x2ddir\x3d/opt/homebrew/opt/openssl\x403
-SETUVAR --export VISUAL:nvim
+SETUVAR --export VISUAL:emacsclient
 SETUVAR --export WATSON_DIR:/Users/michaelutz/\x2econfig/watson
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_brewI:brew\x20info
@@ -14,7 +14,7 @@ SETUVAR _fish_abbr_brewx:brew\x20uninstall
 SETUVAR _fish_abbr_c:composer
 SETUVAR _fish_abbr_caski:brew\x20install\x20\x2d\x2dcask
 SETUVAR _fish_abbr_casks:brew\x20search\x20\x2d\x2dcask
-SETUVAR _fish_abbr_e:nvim
+SETUVAR _fish_abbr_e:\x24EDITOR
 SETUVAR _fish_abbr_gcF:git\x20commit\x20\x2d\x2damend
 SETUVAR _fish_abbr_gcam:git\x20commit\x20\x2dam
 SETUVAR _fish_abbr_gcf:git\x20commit\x20\x2d\x2damend\x20\x2d\x2dreuse\x2dmessage\x3dHEAD
@@ -33,6 +33,7 @@ SETUVAR _fish_abbr_mutt:neomutt
 SETUVAR _fish_abbr_r:ranger
 SETUVAR _fish_abbr_rss:newsboat
 SETUVAR _fish_abbr_tt:taskwarrior\x2dtui
+SETUVAR _fish_abbr_v:\x24VISUAL
 SETUVAR _fish_abbr_yar:brew\x20services\x20restart\x20yabai
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
