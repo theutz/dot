@@ -2,31 +2,12 @@ local log = require("log")
 
 hs.loadSpoon("SpoonInstall")
 
-spoon.SpoonInstall:andUse("EmmyLua")
+--spoon.SpoonInstall:andUse("EmmyLua")
 spoon.SpoonInstall:andUse("ReloadConfiguration", { start = true })
 
-require("utzwm")
-
-hs.hotkey.bind({ "cmd" }, "g", function()
-  local app = hs.application.get("kitty")
-  if app then
-    if not app:mainWindow() then
-      app:selectMenuItem({ "Shell", "New OS Window" })
-    elseif app:isFrontmost() then
-      app:hide()
-    else
-      app:activate()
-    end
-  else
-    hs.application.launchOrFocus("kitty")
-    app = hs.application.get("kitty")
-  end
-
-  app:mainWindow():moveToUnit("100,50,0,0")
-  app:mainWindow().setShadows(false)
-end)
-
 local hyper = require('hyper')
+require("utzwm")
+local mods = { "cmd", "ctrl", "alt" }
 
 hyper.bindApp({}, "s", "SigmaOS")
 hyper.bindApp({}, "e", "Emacs")
@@ -38,5 +19,9 @@ hyper.bindApp({}, "l", "Slack")
 hyper.bindApp({}, "t", "Telegram")
 hyper.bindApp({}, "w", "WhatsApp")
 hyper.bindApp({}, "m", "Messages")
+
+hs.hotkey.bindSpec({ mods, "c" }, function()
+  hs.task.new("/opt/homebrew/bin/fish", nil, { "-l", "-c", "emacsclient --eval '(emacs-everywhere)'" }):start()
+end)
 
 hs.alert.show("Hammerspoon Reloaded!")
