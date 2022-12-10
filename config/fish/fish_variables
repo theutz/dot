@@ -16,6 +16,7 @@ SETUVAR _fish_abbr_c:composer
 SETUVAR _fish_abbr_caski:brew\x20install\x20\x2d\x2dcask
 SETUVAR _fish_abbr_casks:brew\x20search\x20\x2d\x2dcask
 SETUVAR _fish_abbr_e:\x24EDITOR
+SETUVAR _fish_abbr_flushdnscache:sudo\x20dscacheutil\x20\x2dflushcache\x3b\x20sudo\x20\x20killall\x20\x2dHUP\x20mDNSResponder
 SETUVAR _fish_abbr_gcF:git\x20commit\x20\x2d\x2damend
 SETUVAR _fish_abbr_gcam:git\x20commit\x20\x2dam
 SETUVAR _fish_abbr_gcf:git\x20commit\x20\x2d\x2damend\x20\x2d\x2dreuse\x2dmessage\x3dHEAD
@@ -33,6 +34,7 @@ SETUVAR _fish_abbr_icat:kitty\x20\x2bkitten\x20icat
 SETUVAR _fish_abbr_la:lsd\x20\x2dla
 SETUVAR _fish_abbr_ls:lsd
 SETUVAR _fish_abbr_mutt:neomutt
+SETUVAR _fish_abbr_plz:php\x20please
 SETUVAR _fish_abbr_r:ranger
 SETUVAR _fish_abbr_rss:newsboat
 SETUVAR _fish_abbr_tt:taskwarrior\x2dtui

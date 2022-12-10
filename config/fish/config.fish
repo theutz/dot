@@ -26,6 +26,3 @@ set -gx GPG_TTY "(tty)"
 set -gx PNPM_HOME /Users/michaelutz/Library/pnpm
 set -gx PATH "$PNPM_HOME" $PATH
 # pnpm end
-
-set -gx LDFLAGS -L/opt/homebrew/opt/ruby/lib
-set -gx CPPFLAGS -I/opt/homebrew/opt/ruby/include
