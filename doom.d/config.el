@@ -85,3 +85,5 @@
             #'mixed-pitch-mode)
   (custom-set-faces!
     '(org-document-title :height 1.3)))
+
+(setq-default line-spacing 6)
