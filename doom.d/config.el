@@ -79,3 +79,9 @@
 
 (after! evil-snipe
   (setq evil-snipe-spillover-scope 'visible))
+
+(after! org
+  (add-hook 'org-mode-hook
+            #'mixed-pitch-mode)
+  (custom-set-faces!
+    '(org-document-title :height 1.3)))
