@@ -29,3 +29,5 @@
 	conflictStyle = diff3
 [diff]
 	colorMoved = default
+[github]
+	user = theutz

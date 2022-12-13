@@ -36,6 +36,7 @@
       glob: true
     ~/.timewarrior:
     ~/.taskrc:
+    ~/.authinfo.gpg:
     ~/.doom.d/:
       path: doom.d/*
       glob: true

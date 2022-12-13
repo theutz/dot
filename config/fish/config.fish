@@ -20,7 +20,7 @@ if status is-interactive
 end
 
 # gpg
-set -gx GPG_TTY "(tty)"
+set -gx GPG_TTY (tty)
 
 # pnpm
 set -gx PNPM_HOME /Users/michaelutz/Library/pnpm
