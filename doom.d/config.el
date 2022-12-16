@@ -90,3 +90,6 @@
 
 
 (setq-default line-spacing 6)
+
+(after! magit
+  (add-hook! 'magit-status-sections-hook :append #'magit-insert-local-branches #'magit-insert-remote-branches #'magit-insert-tags))
