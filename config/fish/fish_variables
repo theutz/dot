@@ -38,6 +38,8 @@ SETUVAR _fish_abbr_mutt:neomutt
 SETUVAR _fish_abbr_plz:php\x20please
 SETUVAR _fish_abbr_r:ranger
 SETUVAR _fish_abbr_rss:newsboat
+SETUVAR _fish_abbr_tmuxa:tmux\x20attach\x3b\x20or\x20tmux
+SETUVAR _fish_abbr_tmuxl:tmux\x20ls
 SETUVAR _fish_abbr_tt:taskwarrior\x2dtui
 SETUVAR _fish_abbr_v:\x24VISUAL
 SETUVAR _fish_abbr_yar:brew\x20services\x20restart\x20yabai
