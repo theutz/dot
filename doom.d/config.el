@@ -84,6 +84,9 @@
   (add-hook 'org-mode-hook
             #'mixed-pitch-mode)
   (custom-set-faces!
-    '(org-document-title :height 1.3)))
+    '(org-document-title :height 1.3))
+  (push '("b" "Bookmark (Clipboard)" entry (file+headline "bookmarks.org" "Bookmarks")
+          "** %(org-cliplink-capture)\n:PROPERTIES:\n:TIMESTAMP: %t\n:END:%?\n" :empty-lines 1 :prepend t) org-capture-templates))
+
 
 (setq-default line-spacing 6)
