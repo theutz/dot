@@ -93,3 +93,5 @@
 
 (after! magit
   (add-hook! 'magit-status-sections-hook :append #'magit-insert-local-branches #'magit-insert-remote-branches #'magit-insert-tags))
+
+(add-to-list '+lookup-provider-url-alist '("Kagi" "https://kagi.com/search?q=%s"))
