@@ -92,6 +92,9 @@
 (setq-default line-spacing 6)
 
 (after! magit
-  (add-hook! 'magit-status-sections-hook :append #'magit-insert-local-branches #'magit-insert-remote-branches #'magit-insert-tags))
+  (add-hook! 'magit-status-sections-hook :append #'magit-insert-local-branches #'magit-insert-remote-branches #'magit-insert-tags)
+  (let '(sections '(remote local))
+    (dolist (section sections)
+      (add-to-list 'magit-section-initial-visibility-alist `(,section . hide)))))
 
 (add-to-list '+lookup-provider-url-alist '("Kagi" "https://kagi.com/search?q=%s"))
