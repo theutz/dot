@@ -65,6 +65,9 @@
     - pillow
     - timewarrior
     - task
+    - msmtp
+    - isync
+    - grip
 - cask:
     - hammerspoon
     - kitty
