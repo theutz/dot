@@ -2,6 +2,7 @@
 [user]
 	name = Michael Utz
 	email = michael@theutz.com
+	signingkey = 20EAD87446896C423CA9C6C1651A36416AEFB22E
 [init]
 	defaultBranch = main
 [core]
@@ -34,3 +35,5 @@
 	user = theutz
 [rebase]
 	autoStash = true
+[commit]
+	gpgsign = true
