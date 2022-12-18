@@ -97,3 +97,6 @@
       (add-to-list 'magit-section-initial-visibility-alist `(,section . hide)))))
 
 (add-to-list '+lookup-provider-url-alist '("Kagi" "https://kagi.com/search?q=%s"))
+
+(map! :localleader :mode 'org-mode :n "d =" 'org-timestamp-up)
+(map! :localleader :mode 'org-mode :n "d -" 'org-timestamp-down)
