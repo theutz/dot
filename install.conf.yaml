@@ -37,6 +37,9 @@
     ~/.timewarrior:
     ~/.taskrc:
     ~/.authinfo.gpg:
+    ~/.mbsyncrc:
+    ~/.mbsync-fastmail.gpg:
+    ~/.msmtprc:
     ~/.doom.d/:
       path: doom.d/*
       glob: true

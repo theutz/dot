@@ -1,0 +1,30 @@
+# https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/
+# Remote IMAP Account
+IMAPAccount fastmail
+Host imap.fastmail.com
+Port 993
+User michael@theutz.com
+PassCmd "/usr/local/bin/gpg --quiet --decrypt ~/.mbsync-fastmail.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+IMAPStore fastmail-remote
+Account fastmail
+
+# Local Storage
+MaildirStore fastmail-local
+Path ~/Maildir/
+Inbox ~/Maildir/INBOX
+SubFolders Verbatim
+
+# Channel
+Channel fastmail
+Far :fastmail-remote:
+Near :fastmail-local:
+Patterns *
+Expunge None
+CopyArrivalDate yes
+Sync All
+Create Near
+SyncState *
