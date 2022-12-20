@@ -9,11 +9,10 @@ local hyper = require('hyper')
 require("utzwm")
 local mods = { "cmd", "ctrl", "alt" }
 
-hyper.bindApp({}, "s", "SigmaOS")
+hyper.bindApp({}, "b", "Vivaldi")
 hyper.bindApp({}, "e", "Emacs")
 hyper.bindApp({}, "k", "kitty")
 hyper.bindApp({}, "f", "Figma")
-hyper.bindApp({}, "c", "Google Chrome")
 hyper.bindApp({}, "p", "Spotify")
 hyper.bindApp({}, "l", "Slack")
 hyper.bindApp({}, "t", "Telegram")
@@ -21,7 +20,7 @@ hyper.bindApp({}, "w", "WhatsApp")
 hyper.bindApp({}, "m", "Messages")
 
 hs.hotkey.bindSpec({ mods, "c" }, function()
-  hs.task.new("/opt/homebrew/bin/fish", nil, { "-l", "-c", "emacsclient --eval '(emacs-everywhere)'" }):start()
+  hs.task.new("/opt/homebrew/bin/fish", nil, { "-l", "-c", "doom +eveywhere" }):start()
 end)
 
 hs.alert.show("Hammerspoon Reloaded!")
