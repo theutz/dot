@@ -114,3 +114,11 @@
 (setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn)
 (after! dash-docs
   (setq dash-docs-browser-func #'+lookup-xwidget-webkit-open-url-fn))
+
+(after! mu4e
+  (setq mu4e-maildir-shortcuts '(
+                                 (:maildir "/INBOX" :key ?i)
+                                 (:maildir "/Archive" :key ?a)
+                                 (:maildir "/Drafts" :key ?d)
+                                 (:maildir "/Sent" :key ?s)
+                                 (:maildir "/Trash" :key ?t))))
