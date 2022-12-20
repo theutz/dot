@@ -122,3 +122,10 @@
                                  (:maildir "/Drafts" :key ?d)
                                  (:maildir "/Sent" :key ?s)
                                  (:maildir "/Trash" :key ?t))))
+
+(use-package! super-save
+  :config
+  (super-save-mode +1)
+  (setq super-save-auto-save-when-idle t
+        auto-save-default nil)
+  (add-to-list 'super-save-hook-triggers 'find-file-hook))
