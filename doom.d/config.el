@@ -114,10 +114,3 @@
 (setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn)
 (after! dash-docs
   (setq dash-docs-browser-func #'+lookup-xwidget-webkit-open-url-fn))
-
-(after! markdown-mode
-  (let* ((found (nth 0 (auth-source-search :host "api.github.com" :max 1)))
-         (user (plist-get found :user))
-         (secret (plist-get found :secret)))
-    (setq grip-github-user user
-          grip-github-password (funcall secret))))
