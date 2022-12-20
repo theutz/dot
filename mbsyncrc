@@ -16,6 +16,7 @@ Account fastmail
 MaildirStore fastmail-local
 Path ~/Maildir/
 Inbox ~/Maildir/INBOX
+Trash Trash
 SubFolders Verbatim
 
 # Channel
