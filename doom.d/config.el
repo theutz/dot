@@ -138,3 +138,14 @@
   (org-info)
   (call-interactively 'Info-menu))
 (map! :leader :n "h z" #'search-org-manual-menu)
+
+(defun org-kill-subtree-contents ()
+  "Clear all contents of a subtree, preserving only the heading."
+  (interactive)
+  (let ((register "r"))
+    (point-to-register register)
+    (org-mark-subtree)
+    (forward-line)
+    (kill-region (region-beginning) (region-end))
+    (jump-to-register register)))
+(map! :localleader :map org-mode-map :n "s x" #'org-kill-subtree-contents)
