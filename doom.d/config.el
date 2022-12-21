@@ -129,3 +129,6 @@
   (setq super-save-auto-save-when-idle t
         auto-save-default nil)
   (add-to-list 'super-save-hook-triggers 'find-file-hook))
+
+(map! :leader :desc "Switch workspace" :n "TAB TAB" #'+workspace/switch-to)
+(map! :leader :desc "Display tab bar" :n "TAB ." #'workspace/display)
