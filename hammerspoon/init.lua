@@ -1,13 +1,17 @@
+hs.loadSpoon("SpoonInstall")
 local log = require("log")
 
-hs.loadSpoon("SpoonInstall")
+local mods = { "cmd", "ctrl", "alt" }
 
 --spoon.SpoonInstall:andUse("EmmyLua")
-spoon.SpoonInstall:andUse("ReloadConfiguration", { start = true })
+spoon.SpoonInstall:andUse("ReloadConfiguration", {
+  hotkeys = {
+    reloadConfiguration = { mods, "r" }
+  }
+})
 
 local hyper = require('hyper')
 require("utzwm")
-local mods = { "cmd", "ctrl", "alt" }
 
 hyper.bindApp({}, "b", "Vivaldi")
 hyper.bindApp({}, "e", "Emacs")
