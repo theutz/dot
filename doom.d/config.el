@@ -132,3 +132,9 @@
 
 (map! :leader :desc "Switch workspace" :n "TAB TAB" #'+workspace/switch-to)
 (map! :leader :desc "Display tab bar" :n "TAB ." #'workspace/display)
+
+(defun search-org-manual-menu ()
+  (interactive)
+  (org-info)
+  (call-interactively 'Info-menu))
+(map! :leader :n "h z" #'search-org-manual-menu)
