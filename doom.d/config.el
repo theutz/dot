@@ -22,7 +22,7 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Haskplex Nerd" :size 14 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "ETBembo" :size 16 :weight 'regular))
+      doom-variable-pitch-font (font-spec :family "Inter" :size 14 :weight 'light))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -78,10 +78,38 @@
   (setq evil-snipe-spillover-scope 'visible))
 
 (after! org
-  (add-hook 'org-mode-hook
-            #'mixed-pitch-mode)
-  (custom-set-faces!
-    '(org-document-title :height 1.3))
+  (require 'org-faces)
+
+  ;; Hide emphasis markers on formatted text
+  (setq org-hide-emphasis-markers t)
+
+  ;; Resize org headings
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font doom-font :weight 'medium :height (cdr face)))
+
+  (dolist (face '(org-level-1 org-level-2 org-level-3))
+    (set-face-attribute face nil :weight 'semibold))
+
+  ;; Make the document title a little bigger
+  (set-face-attribute 'org-document-title nil :font doom-font :weight 'bold :height 1.3)
+
+  ;; Make sure certain org faces use the fixed-pitch face when variable-pitch-mode is on
+  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+
   (push '("b" "Bookmark" entry (file+headline "bookmarks.org" "Bookmarks")
           "** %(org-cliplink-capture)\n:PROPERTIES:\n:TIMESTAMP: %t\n:END:%?\n" :empty-lines 1 :prepend t) org-capture-templates)
   (setq org-clock-idle-time 5))
