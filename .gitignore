@@ -5,3 +5,4 @@ config/kitty/kitty.conf.bak
 hammerspoon/Spoons
 timewarrior/data
 config/karabiner/automatic_backups
+doom.d/flycheck_config.el
