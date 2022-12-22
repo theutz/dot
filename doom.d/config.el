@@ -147,9 +147,9 @@
         message-send-mail-function #'message-send-mail-with-sendmail
         mu4e-update-interval (* 60 5)))
 
-(setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn)
-(after! dash-docs
-  (setq dash-docs-browser-func #'+lookup-xwidget-webkit-open-url-fn))
+;; (setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn)
+;; (after! dash-docs
+;;   (setq dash-docs-browser-func #'+lookup-xwidget-webkit-open-url-fn))
 
 (after! mu4e
   (setq mu4e-maildir-shortcuts '(
