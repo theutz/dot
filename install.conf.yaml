@@ -68,6 +68,9 @@
     - msmtp
     - isync
     - grip
+    - font-et-book
+    - font-inter
+    - font-haskplex-nerd
 - cask:
     - hammerspoon
     - kitty
