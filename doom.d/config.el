@@ -173,3 +173,5 @@
     (kill-region (region-beginning) (region-end))
     (jump-to-register register)))
 (map! :localleader :map org-mode-map :n "s x" #'org-kill-subtree-contents)
+
+(setq default-input-method "turkish-alt-postfix")
