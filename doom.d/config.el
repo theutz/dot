@@ -86,47 +86,6 @@
           "** %(org-cliplink-capture)\n:PROPERTIES:\n:TIMESTAMP: %t\n:END:%?\n" :empty-lines 1 :prepend t) org-capture-templates)
   (setq org-clock-idle-time 5))
 
-(setq-default line-spacing 10)
-
-(defvar prev-line-spacing line-spacing
-  "Previous value of line spacing before it was turned off.")
-
-(defun set-line-spacing (arg)
-  "Set line spacing. If `arg' is a lambda function, it will be passed
-   a single argument for the current value. Otherwise, it should be a
-   number greater than or equal to `0'. If an invalid value is given,
-   it will be reset to the default value."
-  (setq prev-line-spacing line-spacing
-        line-spacing (cond ((functionp arg) (funcall arg line-spacing))
-                           ((numberp arg) (if (< 0 arg) arg nil))
-                           ((eq arg nil) nil)
-                           (t (default-value 'line-spacing)))))
-
-(defun line-spacing-off ()
-  "Turn line spacing off."
-  (interactive)
-  (set-line-spacing nil))
-
-(defun line-spacing-on ()
-  "Turn line spacing on."
-  (interactive)
-  (set-line-spacing prev-line-spacing))
-
-(defun line-spacing-p ()
-  "Returns `t' if line spacing is on."
-  (not (eq line-spacing nil)))
-
-(defun toggle-line-spacing ()
-  "Toggle line spacing."
-  (interactive)
-  (if (line-spacing-p)
-      (line-spacing-off)
-    (line-spacing-on)))
-
-(map! :leader :desc "Line spacing" :n "t h" #'toggle-line-spacing)
-
-(add-hook 'vterm-mode-hook #'line-spacing-off)
-
 (after! magit
   (let '(sections '(remote local))
     (dolist (section sections)
