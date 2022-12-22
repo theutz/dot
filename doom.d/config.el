@@ -74,8 +74,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq +org-capture-todo-file "inbox.org")
-
 (after! evil-snipe
   (setq evil-snipe-spillover-scope 'visible))
 
