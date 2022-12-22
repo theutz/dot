@@ -22,7 +22,8 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Haskplex Nerd" :size 14 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Inter" :size 14 :weight 'light))
+      doom-variable-pitch-font (font-spec :family "Inter" :size 14 :weight 'light)
+      doom-serif-font (font-spec :family "ETBembo" :size 14 :weight 'regular))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
