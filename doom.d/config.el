@@ -135,9 +135,17 @@
         message-send-mail-function #'message-send-mail-with-sendmail
         mu4e-update-interval (* 60 5)))
 
-;; (setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn)
-;; (after! dash-docs
-;;   (setq dash-docs-browser-func #'+lookup-xwidget-webkit-open-url-fn))
+(map! :leader :desc "News feeds (RSS)" :n "o n" #'elfeed)
+(add-hook 'elfeed-search-mode-hook #'elfeed-update)
+
+(setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn
+      browse-url-browser-function #'+lookup-xwidget-webkit-open-url-fn
+      browse-url-secondary-browser-function #'browse-url-default-browser)
+(map! :leader :desc "xWidget tabs" :n "o x" #'evil-collection-xwidget-webkit-search-tabs)
+(map! :leader :desc "Web page" :n "o w" #'xwidget-webkit-browse-url)
+
+(after! dash-docs
+  (setq dash-docs-browser-func #'+lookup-xwidget-webkit-open-url-fn))
 
 (after! mu4e
   (setq mu4e-maildir-shortcuts '(
@@ -185,7 +193,9 @@
   (setq org-caldav-url "https://caldav.fastmail.com/dav/calendars/user/michael@theutz.com/"
         org-caldav-calendars `((:calendar-id "e8b895a3-6fd2-42cd-9589-4c8c6bcab38f"
                                 :files (,(expand-file-name "family.org" org-directory))
-                                :inbox ,(expand-file-name "from_family.org" org-directory)))
-        org-icalendar-timezone "Europe/Istanbul"
-        auth-source-debug t)
+                                :inbox ,(expand-file-name "from_family.org" org-directory))
+                               (:calendar-id "253b8208-fdd2-4821-bc6c-23852c6529ce"
+                                :files (,(expand-file-name "personal.org" org-directory))
+                                :inbox ,(expand-file-name "from_personal.org" org-directory)))
+        org-icalendar-timezone "Europe/Istanbul")
   (map! :localleader :map 'org-mode-map :n "v" #'org-caldav-sync))
