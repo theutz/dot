@@ -186,4 +186,6 @@
         org-caldav-calendars `((:calendar-id "e8b895a3-6fd2-42cd-9589-4c8c6bcab38f"
                                 :files (,(expand-file-name "family.org" org-directory))
                                 :inbox ,(expand-file-name "from_family.org" org-directory)))
-        org-icalendar-timezone "Europe/Istanbul"))
+        org-icalendar-timezone "Europe/Istanbul"
+        auth-source-debug t)
+  (map! :localleader :map 'org-mode-map :n "v" #'org-caldav-sync))
