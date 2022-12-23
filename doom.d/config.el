@@ -175,3 +175,13 @@
 (map! :localleader :map org-mode-map :n "s x" #'org-kill-subtree-contents)
 
 (setq default-input-method "turkish-alt-postfix")
+
+(map! :leader :desc "Calendar" :n "o c" #'=calendar)
+
+(use-package! org-caldav
+  :config
+  (setq org-caldav-url "https://caldav.fastmail.com/dav/calendars/user/michael@theutz.com/"
+        org-caldav-calendars `((:calendar-id "e8b895a3-6fd2-42cd-9589-4c8c6bcab38f"
+                                :files (,(expand-file-name "family.org" org-directory))
+                                :inbox ,(expand-file-name "from_family.org" org-directory)))
+        org-icalendar-timezone "Europe/Istanbul"))
