@@ -178,6 +178,8 @@
 
 (map! :leader :desc "Calendar" :n "o c" #'=calendar)
 
+(use-package! osx-plist)
+
 (use-package! org-caldav
   :config
   (setq org-caldav-url "https://caldav.fastmail.com/dav/calendars/user/michael@theutz.com/"

@@ -50,3 +50,4 @@
 ;(unpin! t)
 (package! super-save)
 (package! org-caldav)
+(package! osx-plist)
