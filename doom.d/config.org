@@ -88,6 +88,19 @@ To get information about any of these functions/macros, move the cursor over the
 
 You can also try =gd= (or =C-c c d=) to jump to their definition and see how they are implemented.
 
+** Key Map Overrides
+
+#+begin_src emacs-lisp
+(defun utz/doom/goto-private-config-file (prefix)
+  "Go to your private config.org file"
+  (interactive "P")
+  (if (eq prefix nil)
+      (find-file (expand-file-name "config.org" doom-user-dir))
+    (call-interactively 'doom/goto-private-config-file)))
+
+(map! :leader :n "h d c" #'utz/doom/goto-private-config-file)
+#+end_src
+
 ** Auth Sources
 
 #+begin_src emacs-lisp
