@@ -1,3 +1,6 @@
+#+TITLE: config.el
+
+#+BEGIN_SRC emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
@@ -200,3 +203,4 @@
   :config
   (setq org-icalendar-timezone "Europe/Istanbul")
   (map! :localleader :map 'org-mode-map :n "v" #'org-caldav-sync))
+#+END_SRC
