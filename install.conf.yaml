@@ -40,9 +40,7 @@
     ~/.mbsyncrc:
     ~/.mbsync-fastmail.gpg:
     ~/.msmtprc:
-    ~/.doom.d/:
-      path: doom.d/*
-      glob: true
+    ~/.doom.d:
 
 - shell:
     - [pnpm install, Setup pnpm workspace]
