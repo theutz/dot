@@ -189,13 +189,14 @@
 (use-package! osx-plist)
 
 (use-package! org-caldav
-  :config
+  :init
   (setq org-caldav-url "https://caldav.fastmail.com/dav/calendars/user/michael@theutz.com/"
         org-caldav-calendars `((:calendar-id "e8b895a3-6fd2-42cd-9589-4c8c6bcab38f"
                                 :files (,(expand-file-name "family.org" org-directory))
                                 :inbox ,(expand-file-name "from_family.org" org-directory))
                                (:calendar-id "253b8208-fdd2-4821-bc6c-23852c6529ce"
                                 :files (,(expand-file-name "personal.org" org-directory))
-                                :inbox ,(expand-file-name "from_personal.org" org-directory)))
-        org-icalendar-timezone "Europe/Istanbul")
+                                :inbox ,(expand-file-name "from_personal.org" org-directory))))
+  :config
+  (setq org-icalendar-timezone "Europe/Istanbul")
   (map! :localleader :map 'org-mode-map :n "v" #'org-caldav-sync))
