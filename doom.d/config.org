@@ -145,6 +145,12 @@ You can also try =gd= (or =C-c c d=) to jump to their definition and see how the
   (call-interactively 'Info-menu))
 (map! :leader :n "h z" #'search-org-manual-menu)
 #+end_src
+** Spelling
+
+#+begin_src emacs-lisp
+(setq ispell-dictionary "en"
+      ispell-personal-dictionary (expand-file-name ".ispell-personal" doom-private-dir))
+#+end_src
 
 * Package Settings
 
