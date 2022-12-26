@@ -1,86 +1,143 @@
 #+TITLE: config.el
 
-#+BEGIN_SRC emacs-lisp
+* Doom Defaults
+#+begin_src emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+#+end_src
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
+** Identity
+
+Place your private configuration here! Remember, you do not need to run =doom sync= after modifying this file!
 
 
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
+Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets. It is optional.
+
+#+begin_src emacs-lisp
 (setq user-full-name "Michael Utz"
       user-mail-address "michael@theutz.com")
+#+end_src
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
+** Fonts
+
+Doom exposes five (optional) variables for controlling fonts in Doom:
+
+- ~doom-font~ -- the primary font to use
+- ~doom-variable-pitch-font~ -- a non-monospace font (where applicable)
+- ~doom-big-font~ -- used for ~doom-big-font-mode~; use this for presentations or streaming.
+- ~doom-unicode-font~ -- for unicode glyphs
+- ~doom-serif-font~ -- for the ~fixed-pitch-serif~ face
+
+See =C-h v doom-font= for documentation and more examples of what they accept. For example:
+
+#+begin_src emacs-lisp
 (setq doom-font (font-spec :family "Haskplex Nerd" :size 14 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "Inter" :size 14 :weight 'light)
       doom-serif-font (font-spec :family "ETBembo" :size 14 :weight 'regular))
+#+end_src
 
-;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
-;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
-;; refresh your font settings. If Emacs still can't find your font, it likely
-;; wasn't installed correctly. Font issues are rarely Doom issues!
+If you or Emacs can't find your font, use =M-x describe-font= to look them up, =M-x eval-region= to execute elisp code, and =M-x doom/reload-font= to refresh your font settings. If Emacs still can't find your font, it likely wasn't installed correctly. Font issues are rarely Doom issues!
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
+** Theme
+
+There are two ways to load a theme. Both assume the theme is installed and available. You can either set ~doom-theme~ or manually load a theme with the ~load-theme~ function. This is the default:
+
+#+begin_src emacs-lisp
 (setq doom-theme 'doom-palenight)
+#+end_src
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+** Line Numbers
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
+This determines the style of line numbers in effect. If set to ~nil~, line numbers are disabled. For relative line numbers, set this to ~relative~.
+
+#+begin_src emacs-lisp
+(setq display-line-numbers-type 'visual)
+#+end_src
+
+** Org Directory
+
+If you use ~org~ and don't want your org files in the default location below, change ~org-directory~. It must be set before org loads!
+
+#+begin_src emacs-lisp
 (setq org-directory "~/org/")
+#+end_src
 
-;; Whenever you reconfigure a package, make sure to wrap your config in an
-;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
-;;
-;;   (after! PACKAGE
-;;     (setq x y))
-;;
-;; The exceptions to this rule:
-;;
-;;   - Setting file/directory variables (like `org-directory')
-;;   - Setting variables which explicitly tell you to set them before their
-;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
-;;   - Setting doom variables (which start with 'doom-' or '+').
-;;
-;; Here are some additional functions/macros that will help you configure Doom.
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
-;; etc).
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
+* Personal Settings
 
-(after! evil-snipe
-  (setq evil-snipe-spillover-scope 'visible))
+Whenever you reconfigure a package, make sure to wrap your config in an ~after!~ block, otherwise Doom's defaults may override your settings. E.g.
 
+#+begin_src emacs-lisp :tangle no
+  (after! PACKAGE
+    (setq x y))
+#+end_src
+
+The exceptions to this rule:
+
+  - Setting file/directory variables (like ~org-directory~)
+  - Setting variables which explicitly tell you to set them before their package is loaded (see =C-h v VARIABLE= to look up their documentation).
+  - Setting doom variables (which start with =doom-= or =+=).
+
+Here are some additional functions/macros that will help you configure Doom.
+
+- ~load!~ for loading external *.el files relative to this one
+- ~use-package!~ for configuring packages
+- ~after!~ for running code after a package has loaded
+- ~add-load-path!~ for adding directories to the ~load-path~, relative to this file. Emacs searches the ~load-path~ when you load packages with ~require~ or ~use-package~.
+- ~map!~ for binding new keys
+
+To get information about any of these functions/macros, move the cursor over the highlighted symbol at press =K= (non-evil users must press =C-c c k=). This will open documentation for it, including demos of how they are used. Alternatively, use =C-h o= to look up a symbol (functions, variables, faces, etc).
+
+You can also try =gd= (or =C-c c d=) to jump to their definition and see how they are implemented.
+
+** Auth Sources
+
+#+begin_src emacs-lisp
+(add-to-list 'auto-mode-alist '("/authinfo\\.gpg\\'" . authinfo-mode))
+#+end_src
+
+** Lookup
+
+#+begin_src emacs-lisp
+(add-to-list '+lookup-provider-url-alist '("Kagi" "https://kagi.com/search?q=%s"))
+#+end_src
+
+** XWidget Webkit
+
+#+begin_src emacs-lisp
+(setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn
+      browse-url-browser-function #'+lookup-xwidget-webkit-open-url-fn
+      browse-url-secondary-browser-function #'browse-url-default-browser)
+(map! :leader :desc "xWidget tabs" :n "o x" #'evil-collection-xwidget-webkit-search-tabs)
+(map! :leader :desc "Web page" :n "o w" #'xwidget-webkit-browse-url)
+#+end_src
+
+** Workspaces
+
+#+begin_src emacs-lisp
+(map! :leader :desc "Switch workspace" :n "TAB TAB" #'+workspace/switch-to)
+(map! :leader :desc "Display tab bar" :n "TAB ." #'+workspace/display)
+#+end_src
+
+** Input Method
+
+#+begin_src emacs-lisp
+(setq default-input-method "turkish-alt-postfix")
+#+end_src
+
+** Info
+
+#+begin_src emacs-lisp
+(defun search-org-manual-menu ()
+  (interactive)
+  (org-info)
+  (call-interactively 'Info-menu))
+(map! :leader :n "h z" #'search-org-manual-menu)
+#+end_src
+
+* Package Settings
+
+** org
+
+#+begin_src emacs-lisp
 (after! org
   (require 'org-faces)
 
@@ -116,81 +173,97 @@
 
   (push '("b" "Bookmark" entry (file+headline "bookmarks.org" "Bookmarks")
           "** %(org-cliplink-capture)\n:PROPERTIES:\n:TIMESTAMP: %t\n:END:%?\n" :empty-lines 1 :prepend t) org-capture-templates)
-  (setq org-clock-idle-time 5))
+  (setq org-clock-idle-time 5)
+  (map! :localleader :mode 'org-mode :n "d =" 'org-timestamp-up)
+  (map! :localleader :mode 'org-mode :n "d -" 'org-timestamp-down)
 
+  (defun org-kill-subtree-contents ()
+    "Clear all contents of a subtree, preserving only the heading."
+    (interactive)
+    (let ((register "r"))
+      (point-to-register register)
+      (org-mark-subtree)
+      (forward-line)
+      (kill-region (region-beginning) (region-end))
+      (jump-to-register register)))
+  (map! :localleader :map org-mode-map :n "s x" #'org-kill-subtree-contents))
+#+end_src
+
+** evil-snipe
+
+#+begin_src emacs-lisp
+(after! evil-snipe
+  (setq evil-snipe-spillover-scope 'visible))
+#+end_src
+
+** magit
+
+#+begin_src emacs-lisp
 (after! magit
   (let '(sections '(remote local))
     (dolist (section sections)
       (add-to-list 'magit-section-initial-visibility-alist `(,section . hide)))))
+#+end_src
 
-(add-to-list '+lookup-provider-url-alist '("Kagi" "https://kagi.com/search?q=%s"))
+** mu4e
 
-(map! :localleader :mode 'org-mode :n "d =" 'org-timestamp-up)
-(map! :localleader :mode 'org-mode :n "d -" 'org-timestamp-down)
-
-(add-to-list 'auto-mode-alist '("/authinfo\\.gpg\\'" . authinfo-mode))
-
+#+begin_src emacs-lisp
 (after! mu4e
   (setq sendmail-program (executable-find "msmtp")
         send-mail-function #'smtpmail-send-it
         message-sendmail-f-is-evil t
         message-sendmail-extra-arguments '("--read-envelope-from")
         message-send-mail-function #'message-send-mail-with-sendmail
-        mu4e-update-interval (* 60 5)))
-
-(map! :leader :desc "News feeds (RSS)" :n "o n" #'elfeed)
-(add-hook 'elfeed-search-mode-hook #'elfeed-update)
-
-(setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn
-      browse-url-browser-function #'+lookup-xwidget-webkit-open-url-fn
-      browse-url-secondary-browser-function #'browse-url-default-browser)
-(map! :leader :desc "xWidget tabs" :n "o x" #'evil-collection-xwidget-webkit-search-tabs)
-(map! :leader :desc "Web page" :n "o w" #'xwidget-webkit-browse-url)
-
-(after! dash-docs
-  (setq dash-docs-browser-func #'+lookup-xwidget-webkit-open-url-fn))
-
-(after! mu4e
-  (setq mu4e-maildir-shortcuts '(
+        mu4e-update-interval (* 60 5)
+        mu4e-maildir-shortcuts '(
                                  (:maildir "/INBOX" :key ?i)
                                  (:maildir "/Archive" :key ?a)
                                  (:maildir "/Drafts" :key ?d)
                                  (:maildir "/Sent" :key ?s)
                                  (:maildir "/Trash" :key ?t))))
+#+end_src
 
+** elfeed
+
+#+begin_src emacs-lisp
+(after! elfeed
+  (map! :leader :desc "News feeds (RSS)" :n "o n" #'elfeed)
+  (add-hook 'elfeed-search-mode-hook #'elfeed-update))
+#+end_src
+
+** dash-docs
+
+#+begin_src emacs-lisp
+(after! dash-docs
+  (setq dash-docs-browser-func #'+lookup-xwidget-webkit-open-url-fn))
+#+end_src
+
+** super-save
+
+#+begin_src emacs-lisp
 (use-package! super-save
   :config
   (super-save-mode +1)
   (setq super-save-auto-save-when-idle t
         auto-save-default nil)
   (add-to-list 'super-save-hook-triggers 'find-file-hook))
+#+end_src
 
-(map! :leader :desc "Switch workspace" :n "TAB TAB" #'+workspace/switch-to)
-(map! :leader :desc "Display tab bar" :n "TAB ." #'+workspace/display)
+** calendar
 
-(defun search-org-manual-menu ()
-  (interactive)
-  (org-info)
-  (call-interactively 'Info-menu))
-(map! :leader :n "h z" #'search-org-manual-menu)
-
-(defun org-kill-subtree-contents ()
-  "Clear all contents of a subtree, preserving only the heading."
-  (interactive)
-  (let ((register "r"))
-    (point-to-register register)
-    (org-mark-subtree)
-    (forward-line)
-    (kill-region (region-beginning) (region-end))
-    (jump-to-register register)))
-(map! :localleader :map org-mode-map :n "s x" #'org-kill-subtree-contents)
-
-(setq default-input-method "turkish-alt-postfix")
-
+#+begin_src emacs-lisp
 (map! :leader :desc "Calendar" :n "o c" #'=calendar)
+#+end_src
 
+** osx-plist
+
+#+begin_src emacs-lisp
 (use-package! osx-plist)
+#+end_src
 
+** org-caldav
+
+#+begin_src emacs-lisp
 (use-package! org-caldav
   :init
   (setq org-caldav-url "https://caldav.fastmail.com/dav/calendars/user/michael@theutz.com/"
@@ -203,4 +276,4 @@
   :config
   (setq org-icalendar-timezone "Europe/Istanbul")
   (map! :localleader :map 'org-mode-map :n "v" #'org-caldav-sync))
-#+END_SRC
+#+end_src
