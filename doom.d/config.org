@@ -189,6 +189,25 @@ You can also try =gd= (or =C-c c d=) to jump to their definition and see how the
   (map! :localleader :map org-mode-map :n "s x" #'org-kill-subtree-contents))
 #+end_src
 
+*** org-caldav
+
+#+begin_src emacs-lisp
+(use-package! org-caldav
+  :init
+  (defvar org-caldav-dir (expand-file-name "calendars" org-directory))
+  :config
+  (setq org-caldav-url "https://caldav.fastmail.com/dav/calendars/user/michael@theutz.com/"
+        org-caldav-calendars `((:calendar-id "e8b895a3-6fd2-42cd-9589-4c8c6bcab38f"
+                                :files (,(expand-file-name "family.org" org-caldav-dir))
+                                :inbox ,(expand-file-name "from_family.org" org-caldav-dir))
+                               (:calendar-id "253b8208-fdd2-4821-bc6c-23852c6529ce"
+                                :files (,(expand-file-name "personal.org" org-caldav-dir))
+                                :inbox ,(expand-file-name "from_personal.org" org-caldav-dir)))
+        org-icalendar-timezone "Europe/Istanbul")
+
+  (map! :localleader :map 'org-mode-map :n "v" #'org-caldav-sync))
+#+end_src
+
 ** evil-snipe
 
 #+begin_src emacs-lisp
@@ -261,19 +280,3 @@ You can also try =gd= (or =C-c c d=) to jump to their definition and see how the
 (use-package! osx-plist)
 #+end_src
 
-** org-caldav
-
-#+begin_src emacs-lisp
-(use-package! org-caldav
-  :init
-  (setq org-caldav-url "https://caldav.fastmail.com/dav/calendars/user/michael@theutz.com/"
-        org-caldav-calendars `((:calendar-id "e8b895a3-6fd2-42cd-9589-4c8c6bcab38f"
-                                :files (,(expand-file-name "family.org" org-directory))
-                                :inbox ,(expand-file-name "from_family.org" org-directory))
-                               (:calendar-id "253b8208-fdd2-4821-bc6c-23852c6529ce"
-                                :files (,(expand-file-name "personal.org" org-directory))
-                                :inbox ,(expand-file-name "from_personal.org" org-directory))))
-  :config
-  (setq org-icalendar-timezone "Europe/Istanbul")
-  (map! :localleader :map 'org-mode-map :n "v" #'org-caldav-sync))
-#+end_src
