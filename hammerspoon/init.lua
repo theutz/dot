@@ -26,12 +26,28 @@ hyper.bindApp({}, "s", "Slack")
 hyper.bindApp({}, "t", "Telegram")
 hyper.bindApp({}, "w", "WhatsApp")
 
-hs.hotkey.bindSpec({ mods, "c" }, function()
-  hs.task.new("/opt/homebrew/bin/fish", function(exitCode, stdErr)
+local function logTaskErr(taskName)
+  return function (exitCode, stdOut, stdErr)
+    log.f("Running %s", taskName)
+    log.d(stdOut)
+
     if exitCode > 0 then
-      print('Emacs Everywhere: ', exitCode, stdErr)
+      log.ef("%s: %d %s", taskName, exitCode, stdErr)
     end
-  end, { "-l", "-c", 'doom +everywhere' }):start()
-end)
+  end
+end
+
+local function runInShell(command)
+  return function ()
+    hs.task.new(
+      "/opt/homebrew/bin/fish",
+      logTaskErr(command),
+      { "-l", "-c", command }
+    ):start()
+  end
+end
+
+hs.hotkey.bindSpec({ mods, "c" }, runInShell("doom +everywhere"))
+hs.hotkey.bindSpec({ mods, "x" }, runInShell("emacsclient -ne '(utz/make-capture-frame)'"))
 
 hs.alert.show("Hammerspoon Reloaded!")
