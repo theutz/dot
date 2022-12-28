@@ -25,6 +25,7 @@ hyper.bindApp({}, "m", "Messages")
 hyper.bindApp({}, "s", "Slack")
 hyper.bindApp({}, "t", "Telegram")
 hyper.bindApp({}, "w", "WhatsApp")
+hyper.bindApp({}, "h", "Hammerspoon")
 
 local function logTaskErr(taskName)
   return function (exitCode, stdOut, stdErr)
