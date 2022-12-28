@@ -151,6 +151,44 @@ You can also try =gd= (or =C-c c d=) to jump to their definition and see how the
 (setq ispell-dictionary "en"
       ispell-personal-dictionary (expand-file-name ".ispell-personal" doom-private-dir))
 #+end_src
+** Capture frames
+
+Stolen heavily from [[https://macowners.club/posts/org-capture-from-everywhere-macos/][this post]], let's make a function for creating an ~org-capture~ window from anywhere.
+
+#+begin_src emacs-lisp
+(defun utz/make-capture-frame ()
+  "Create a new frame and run `org-capture'."
+  (interactive)
+  (make-frame `((name . "capture")
+                (top . 300)
+                (left . 700)
+                (width . 80)
+                (height . 25)))
+  (select-frame-by-name "capture")
+  (delete-other-windows)
+  (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+          (org-capture)))
+#+end_src
+
+After defining this function, let's advise ~org-capture~ that to create the frame when it's finalized...
+
+#+begin_src emacs-lisp
+(defadvice org-capture-finalize
+    (after delete-capture-frame activate)
+  "Advise capture-finalize to close the frame."
+  (if (equal "capture" (frame-parameter nil 'name))
+      (delete-frame)))
+#+end_src
+
+...and to destroy the frame when the capture is destroyed.
+
+#+begin_src emacs-lisp
+(defadvice org-capture-destroy
+    (after delete-capture-frame activate)
+  "Advise capture-destroy to close the frame."
+  (if (equal "capture" (frame-parameter nil 'name))
+      (delete-frame)))
+#+end_src
 
 * Package Settings
 
