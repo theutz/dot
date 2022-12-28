@@ -5,6 +5,7 @@ SETUVAR --export RUBY_CONFIGURE_OPTS:\x2d\x2dwith\x2dopenssl\x2ddir\x3d/opt/home
 SETUVAR --export VISUAL:emacsclient
 SETUVAR --export WATSON_DIR:/Users/michaelutz/\x2econfig/watson
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_a:php\x20artisan
 SETUVAR _fish_abbr_brewI:brew\x20info
 SETUVAR _fish_abbr_brewh:brew\x20home
 SETUVAR _fish_abbr_brewi:brew\x20install
