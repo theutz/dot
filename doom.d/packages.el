@@ -51,3 +51,4 @@
 (package! super-save)
 (package! org-caldav)
 (package! osx-plist)
+(package! noflet)
