@@ -54,6 +54,7 @@
     - font-et-book
     - font-inter
     - font-haskplex-nerd
+    - cheat
 - cask:
     - hammerspoon
     - kitty
