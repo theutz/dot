@@ -23,12 +23,9 @@
     ~/.config/:
       path: config/*
       glob: true
-    ~/Library/Application Support/navi/config.yaml: navi/config.yaml
     ~/.w3m/:
       path: w3m/*
       glob: true
-    ~/.timewarrior:
-    ~/.taskrc:
     ~/.authinfo.gpg:
     ~/.mbsyncrc:
     ~/.mbsync-fastmail.gpg:
@@ -50,14 +47,10 @@
     - fish
     - fisher
     - selene
-    - neomutt
     - ranger
     - pillow
-    - timewarrior
-    - task
     - msmtp
     - isync
-    - grip
     - font-et-book
     - font-inter
     - font-haskplex-nerd
