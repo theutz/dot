@@ -18,16 +18,12 @@
     ~/.bash_profile:
     ~/.gitconfig:
     ~/.tmux.conf:
-    ~/.nbrc:
     ~/.hammerspoon:
       if: "[ (uname) = Darwin ]"
     ~/.config/:
       path: config/*
       glob: true
     ~/Library/Application Support/navi/config.yaml: navi/config.yaml
-    ~/.newsboat/:
-      path: newsboat/*
-      glob: true
     ~/.w3m/:
       path: w3m/*
       glob: true
@@ -57,7 +53,6 @@
     - fish
     - fisher
     - selene
-    - newsboat
     - neomutt
     - ranger
     - pillow
