@@ -395,3 +395,8 @@ https://github.com/merrickluo/lsp-tailwindcss
 #+begin_src emacs-lisp
 (map! :map embark-buffer-map :g "P" #'persp-remove-buffer)
 #+end_src
+** git-auto-commit-mode
+
+#+begin_src emacs-lisp
+(use-package! git-auto-commit-mode)
+#+end_src
