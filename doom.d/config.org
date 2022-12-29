@@ -305,8 +305,8 @@ After defining this function, let's advise ~org-capture~ that to create the fram
 ** elfeed
 
 #+begin_src emacs-lisp
+(map! :leader :desc "News feeds (RSS)" :n "o n" #'elfeed)
 (after! elfeed
-  (map! :leader :desc "News feeds (RSS)" :n "o n" #'elfeed)
   (add-hook 'elfeed-search-mode-hook #'elfeed-update))
 #+end_src
 
