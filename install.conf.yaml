@@ -27,9 +27,6 @@
     ~/.w3m/:
       path: w3m/*
       glob: true
-    ~/bin/sigmaos:
-      path: bin/sigmaos
-      glob: true
     ~/.timewarrior:
     ~/.taskrc:
     ~/.authinfo.gpg:
