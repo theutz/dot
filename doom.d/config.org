@@ -374,6 +374,16 @@ https://github.com/merrickluo/lsp-tailwindcss
   :init
   (setq lsp-tailwindcss-add-on-mode t))
 #+end_src
+
+*** lsp-intelephense
+
+#+begin_src emacs-lisp
+(defun utz/php-mode-config ()
+  (setq lsp-intelephense-licence-key (utz/fetch-password :user "intelephense")))
+
+(add-hook! 'php-mode-hook #'utz/php-mode-config)
+#+end_src
+
 ** web-mode
 
 #+begin_src emacs-lisp
