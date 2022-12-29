@@ -319,8 +319,10 @@ After defining this function, let's advise ~org-capture~ that to create the fram
 
 #+begin_src emacs-lisp
 (map! :leader :desc "News feeds (RSS)" :n "o n" #'elfeed)
+
 (after! elfeed
-  (add-hook 'elfeed-search-mode-hook #'elfeed-update))
+  (add-hook 'elfeed-search-mode-hook #'elfeed-update)
+  (setq elfeed-search-filter "+unread"))
 #+end_src
 
 ** dash-docs
