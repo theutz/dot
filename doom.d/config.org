@@ -245,6 +245,8 @@ After defining this function, let's advise ~org-capture~ that to create the fram
   (push '("b" "Bookmark" entry (file+headline "bookmarks.org" "Bookmarks")
           "** %(org-cliplink-capture)\n:PROPERTIES:\n:TIMESTAMP: %t\n:END:%?\n" :empty-lines 1 :prepend t) org-capture-templates)
   (setq org-clock-idle-time 5)
+
+  (setq org-id-link-to-org-use-id t)
   (map! :localleader :mode 'org-mode :n "d =" 'org-timestamp-up)
   (map! :localleader :mode 'org-mode :n "d -" 'org-timestamp-down)
 
@@ -257,6 +259,7 @@ After defining this function, let's advise ~org-capture~ that to create the fram
       (forward-line)
       (kill-region (region-beginning) (region-end))
       (jump-to-register register)))
+
   (map! :localleader :map org-mode-map :n "s x" #'org-kill-subtree-contents))
 #+end_src
 
