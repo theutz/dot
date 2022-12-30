@@ -279,9 +279,10 @@ After defining this function, let's advise ~org-capture~ that to create the fram
                                (:calendar-id "253b8208-fdd2-4821-bc6c-23852c6529ce"
                                 :files (,(expand-file-name "personal.org" org-caldav-dir))
                                 :inbox ,(expand-file-name "from_personal.org" org-caldav-dir)))
-        org-icalendar-timezone "Europe/Istanbul")
+        org-icalendar-timezone "Europe/Istanbul"))
 
-  (map! :localleader :map 'org-mode-map :n "v" #'org-caldav-sync))
+(map! :localleader :map 'org-mode-map :g "v" #'org-caldav-sync)
+(map! :map 'cfw:calendar-mode-map :m "r" #'org-caldav-sync)
 #+end_src
 
 ** evil-snipe
