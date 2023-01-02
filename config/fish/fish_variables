@@ -18,6 +18,7 @@ SETUVAR _fish_abbr_caski:brew\x20install\x20\x2d\x2dcask
 SETUVAR _fish_abbr_casks:brew\x20search\x20\x2d\x2dcask
 SETUVAR _fish_abbr_e:\x24EDITOR
 SETUVAR _fish_abbr_flushdnscache:sudo\x20dscacheutil\x20\x2dflushcache\x3b\x20sudo\x20\x20killall\x20\x2dHUP\x20mDNSResponder
+SETUVAR _fish_abbr_gbc:git\x20checkout\x20\x2db
 SETUVAR _fish_abbr_gcF:git\x20commit\x20\x2d\x2damend
 SETUVAR _fish_abbr_gcam:git\x20commit\x20\x2dam
 SETUVAR _fish_abbr_gcf:git\x20commit\x20\x2d\x2damend\x20\x2d\x2dreuse\x2dmessage\x3dHEAD
