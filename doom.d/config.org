@@ -127,8 +127,8 @@ You can also try =gd= (or =C-c c d=) to jump to their definition and see how the
 ** Workspaces
 
 #+begin_src emacs-lisp
-(map! :leader :desc "Switch workspace" :n "TAB TAB" #'+workspace/switch-to)
-(map! :leader :desc "Display tab bar" :n "TAB ." #'+workspace/display)
+(map! :desc "Swap with Next Workspace" :map 'doom-leader-workspace-map :g "f" #'+workspace/swap-right)
+(map! :desc "Swap with Prev Workspace" :map 'doom-leader-workspace-map :g "b" #'+workspace/swap-left)
 #+end_src
 
 ** Input Method
