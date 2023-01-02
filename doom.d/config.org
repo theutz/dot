@@ -406,3 +406,14 @@ https://github.com/merrickluo/lsp-tailwindcss
 #+begin_src emacs-lisp
 (use-package! git-auto-commit-mode)
 #+end_src
+** smudge
+
+#+begin_src emacs-lisp
+(use-package! smudge
+  :disabled t
+  :config
+  (setq smudge-oauth2-client-secret (utz/fetch-password :user "spotify^secret")
+        smudge-oauth2-client-id (utz/fetch-password :user "spotify^id")))
+#+end_src
+
+- [ ] Make a Spotify app and connect
