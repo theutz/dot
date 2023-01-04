@@ -40,6 +40,7 @@ SETUVAR _fish_abbr_icat:kitty\x20\x2bkitten\x20icat
 SETUVAR _fish_abbr_la:lsd\x20\x2dla
 SETUVAR _fish_abbr_ls:lsd
 SETUVAR _fish_abbr_mutt:neomutt
+SETUVAR _fish_abbr_pest:\x2e/vendor/bin/pest
 SETUVAR _fish_abbr_plz:php\x20please
 SETUVAR _fish_abbr_r:ranger
 SETUVAR _fish_abbr_rss:newsboat
