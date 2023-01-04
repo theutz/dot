@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Conventional Commits
+# uuid: conventionalcommits
+# key: cc
+# condition: t
+# --
+${1:$$(yas-choose-value '("feat" "fix" "style" "refactor" "chore" "ci"))}($2): $3
+$0
