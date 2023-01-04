@@ -13,12 +13,7 @@ spoon.SpoonInstall:andUse("ReloadConfiguration", {
 local hyper = require('hyper')
 require("utzwm")
 
-hyper.bindApp({}, "1", "Emacs") -- Default Editor
-hyper.bindApp({}, "2", "Vivaldi") -- Default Browser
-hyper.bindApp({}, "3", "kitty") -- Default Terminal
-hyper.bindApp({}, "4", "Spotify") -- Default Music Player
-hyper.bindApp({}, "5", "Surfshark") -- Default VPN
-
+hyper.bindApp({}, "1", "1password")
 hyper.bindApp({}, "c", "Google Chrome")
 hyper.bindApp({}, "d", "Dash")
 hyper.bindApp({}, "e", "Emacs")
