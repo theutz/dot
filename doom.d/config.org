@@ -101,7 +101,6 @@ You can also try =gd= (or =C-c c d=) to jump to their definition and see how the
 
 (map! :leader :n "h d c" #'utz/doom/goto-private-config-file)
 #+end_src
-
 ** Auth Sources
 
 #+begin_src emacs-lisp
@@ -260,7 +259,8 @@ After defining this function, let's advise ~org-capture~ that to create the fram
       (kill-region (region-beginning) (region-end))
       (jump-to-register register)))
 
-  (map! :localleader :map org-mode-map :n "s x" #'org-kill-subtree-contents))
+  (map! :localleader :map 'org-mode-map :g "s x" #'org-kill-subtree-contents)
+  (map! :localleader :map 'org-mode-map :g "s t" #'org-insert-structure-template))
 #+end_src
 
 *** org-caldav
