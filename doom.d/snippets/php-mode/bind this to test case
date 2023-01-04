@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: bind this to test case
+# uuid: bindthistotestcase
+# key: @var
+# condition: t
+# --
+/** @var \Tests\TestCase \$this */
