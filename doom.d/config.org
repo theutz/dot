@@ -417,3 +417,10 @@ https://github.com/merrickluo/lsp-tailwindcss
 #+end_src
 
 - [ ] Make a Spotify app and connect
+
+** yasnippet
+
+#+begin_src emacs-lisp
+(map! :leader :desc "Snippet" :g "o s" #'yas-visit-snippet-file)
+(map! :leader :desc "New snippet" :g "o S" #'yas-new-snippet)
+#+end_src
