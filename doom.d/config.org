@@ -424,3 +424,10 @@ https://github.com/merrickluo/lsp-tailwindcss
 (map! :leader :desc "Snippet" :g "o s" #'yas-visit-snippet-file)
 (map! :leader :desc "New snippet" :g "o S" #'yas-new-snippet)
 #+end_src
+** flycheck
+*** flycheck-phpstan
+
+#+begin_src emacs-lisp
+(use-package! flycheck-phpstan
+             :hook php-mode)
+#+end_src
